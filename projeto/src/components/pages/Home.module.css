@@ -58,7 +58,15 @@
     border-bottom: 5px solid black;
 }
 
+.section2 h1 {
+    font-size: 70px;
+}
 
+.section2 p {
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
 
 .bannerContainer {
     display: flex;
