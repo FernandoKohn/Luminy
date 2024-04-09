@@ -1,9 +1,11 @@
+import { useState } from "react"
 import styles from "./Login.module.css"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
-export const Login = (props) => {
 
-    const {state} = this.props.location
+export const Login = () => {
+
+    let {state} = useLocation()
 
     const handleSubmit = () => {
         
@@ -11,6 +13,7 @@ export const Login = (props) => {
 
     return (
         <div className={styles.main}>
+            {state && <div>Hello</div>}
                 <form className={styles.formContainer} onSubmit={handleSubmit}>
                     <h1>SIGN IN</h1>
                     <p> COMECE A APROVEITAR OS BENEFÍCIOS HOJE MESMO!</p>
