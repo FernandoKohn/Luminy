@@ -3,15 +3,21 @@ import { useState, useEffect } from "react"
 import light_off from "../../img/light_off.png"
 import light_on from "../../img/light_on.png"
 import placeholder from "../../img/placeholder.jpg"
-import { Link } from "react-router-dom"
-import {Navbar} from "../layout/Navbar"
+import { Link, useLocation } from "react-router-dom"
+import { Navbar } from "../layout/Navbar"
 
 interface usuario {
     usuario: string
-    senha:string
+    senha: string
 }
 
 export const Home = () => {
+
+
+    const [src, setSrc] = useState<boolean>(true)
+    const [usuario, setUsuario] = useState<usuario>()
+    const [logged, setLogged] = useState<boolean>(false)
+
 
     useEffect(() => {
         fetch("", {
@@ -20,21 +26,18 @@ export const Home = () => {
                 "Content-Type": "application/json"
             }
         })
-        .then(resp => resp.json())
-        .then((data) => {
-            setUsuario(data)
-        })
-    },[])
-    
+            .then(resp => resp.json())
+            .then((data) => {
+                setUsuario(data)
+            })
+    }, [])
 
-    const [src, setSrc] = useState(true)
-    const [usuario, setUsuario] = useState<usuario>()
-    const [teste, setTeste] = useState("alou")
-    
+
+
 
     return (
         <div className={styles.main}>
-            <Navbar isLogged={false}></Navbar>
+            <Navbar isLogged={logged}></Navbar>
             <div className={styles.home}>
                 <section className={src ? styles.section1_off : styles.section1_on}>
                     {src === false && (
@@ -70,11 +73,11 @@ export const Home = () => {
                 <section className={styles.section3}>
                     <h1>CALL TO ACTION</h1>
                     <p>DESC</p>
-                    <Link to="/login" state={teste}>
-                       <button className={styles.entrar}>entrar</button>
+                    <Link to="/Login" state={{isLogged: logged}}>;
+                        <button className={styles.entrar}>entrar</button>
                     </Link>
                 </section>
-            </div>  
+            </div>
         </div>
     )
 }

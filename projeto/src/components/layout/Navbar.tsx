@@ -13,7 +13,7 @@ export const Navbar = (props: props) => {
                 <Link to="/">
                     <img src={Logo} alt="Logo" />
                 </Link>
-                <Link to="/sobre">
+                <Link to="/Sobre">
                     <h1>Sobre</h1>
                 </Link>
             </div>
@@ -24,7 +24,7 @@ export const Navbar = (props: props) => {
                     </div>
                 ) : (
                     <div className={styles.notLogged}>
-                        <Link to="/login">
+                        <Link to="/Login" state={props.isLogged}>
                             <h1>Login</h1>
                         </Link>
                         <h1>/</h1>
