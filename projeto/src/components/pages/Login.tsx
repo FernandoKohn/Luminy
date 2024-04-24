@@ -1,46 +1,37 @@
-import { ReactElement, useState } from "react"
+import { useEffect, useState } from "react"
 import styles from "./Login.module.css"
 import { Link } from "react-router-dom"
+import axios from "axios";
 
 
 
 export const Login = () => {
 
-    const [usuario, setUsuario] = useState<object>([])
-    const [error, setError] = useState<string>()
+    const [usuario, setUsuario] = useState([])
+    const [error, setError] = useState("")
 
-    console.log(usuario)
+    const jsonServer = axios.create({
+        baseURL: 'https://boatneck-mulberry-chime.glitch.me/user'
+    })
+
+    useEffect((()=>{
+        jsonServer.get('').then(resp => setUsuario(resp.data))
+    }),[])
 
     const handleSubmit = (e: any): any => {
         e.preventDefault()
         let data = new FormData(e.target)
         let value = Object.fromEntries(data.entries())
         
-        if (Object.values(usuario).indexOf(value) !== undefined) {
-            setError("Usuário já cadastrado")
-        } else {
-            fetch("https://boatneck-mulberry-chime.glitch.me/user", {
-                method: "POST",
-                headers: {
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify(value)
-            })
-            .then(resp => resp.json())
-            .catch(err => console.log(err))
+        for (let index of usuario) {
+            if (index.user == data.get("user")) {
+                setError("Usuário já cadastrado")
+            }
         }
-
     }
-
-    const resetdb = (): any => {
-        fetch(`https://boatneck-mulberry-chime.glitch.me/user/1`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        })
-            .then(resp => resp.json())
-            .catch(err => console.log(err))
+    
+    const resetdb = () => {
+        jsonServer.delete("/2")
     }
 
     return (
