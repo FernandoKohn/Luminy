@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
 import styles from "./Login.module.css"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios";
+import Alert from '@mui/material/Alert';
+
 
 
 
@@ -11,32 +13,34 @@ export const Login = () => {
     const [error, setError] = useState("")
 
     const jsonServer = axios.create({
-        baseURL: 'https://boatneck-mulberry-chime.glitch.me/user'
+        baseURL: 'https://luminy.glitch.me/user'
     })
 
-    useEffect((()=>{
-        jsonServer.get('').then(resp => setUsuario(resp.data))
-    }),[])
+    useEffect((() => {
+        jsonServer.get('').then(resp => setUsuario(resp.data)).catch(err => console.log(err))
+    }), [])
 
-    const handleSubmit = (e: any): any => {
+    const handleSubmit = (e: any) => {
         e.preventDefault()
         let data = new FormData(e.target)
         let value = Object.fromEntries(data.entries())
-        
+
         for (let index of usuario) {
-            if (index.user == data.get("user")) {
-                setError("Usuário já cadastrado")
+            if (index.user === data.get("user") && index.password == data.get("password")) {
+
             }
         }
+
+
     }
-    
+
     const resetdb = () => {
-        jsonServer.delete("/2")
+        jsonServer.delete("/").catch(err => console.log(err))
     }
 
     return (
         <div className={styles.main}>
-
+            <Alert severity="success">This is a success Alert.</Alert>
             <form className={styles.formContainer} onSubmit={handleSubmit}>
                 <h1>SIGN IN</h1>
                 <p> COMECE A APROVEITAR OS BENEFÍCIOS HOJE MESMO!</p>
