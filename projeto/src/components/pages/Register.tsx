@@ -1,19 +1,16 @@
-import styles from "./Login.module.css"
-import { useEffect, useState } from "react"
-import { Link, useNavigate} from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
+import styles from "./Register.module.css"
 import axios from "axios";
 import Alert from '@mui/material/Alert';
 
-type severity = "success" | "info" | "warning" | "error"
 
-export const Login = () => {
+export const Register = () => {
 
     const [usuario, setUsuario] = useState([])
     const [hasUser, sethasUser] = useState(false)
     const [message, setMessage] = useState("")
-    const [messageType, setmessageType] = useState<severity>("success")
-    const navigate = useNavigate()
-
+    const [messageType, setmessageType] = useState("")
 
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
@@ -29,31 +26,29 @@ export const Login = () => {
         let value = Object.fromEntries(data.entries())
 
         for (let index of usuario) {
-            if (index.user === data.get("user") && index.password == data.get("password")) {
-                navigate(`/Dashboard/${data.get("user")}`)
+            if (index.user === data.get("user")) {
                 sethasUser(true)
             }
         }
-        
-        if (hasUser === false) {
-            setMessage("Usuário não cadastrado")
-            setmessageType("error")
+
+        if (hasUser === true) {
+            setMessage("Usuário já cadastrado")
+        } else {
+            jsonServer.post('', value).then((resp) => {
+                setMessage("Cadastrado com sucesso!")
+                setUsuario(resp.data)
+            })
         }
-
-    }
-
-    const resetdb = () => {
-        jsonServer.delete("/3").catch(err => console.log(err))
     }
 
     return (
         <div className={styles.main}>
             {message && (
-                <Alert severity={messageType}>{message}</Alert>
+                messageType
             )}
 
             <form className={styles.formContainer} onSubmit={handleSubmit}>
-                <h1>SIGN IN</h1>
+                <h1>CADASTRE-SE</h1>
                 <p> COMECE A APROVEITAR OS BENEFÍCIOS HOJE MESMO!</p>
                 <label htmlFor="user" >USUÁRIO</label>
                 <input type="text" id="user" name="user" maxLength={25} required />
@@ -62,17 +57,15 @@ export const Login = () => {
                 <Link to="/ResetPassword">
                     <p id={styles.forgotPassword}>ESQUECEU A SENHA?</p>
                 </Link>
-                <button type="submit">ENTRAR</button>
+                <button type="submit">CADASTRAR</button>
             </form>
             <div>
-                <h1>NOVO AQUI?</h1>
-                <Link to={"/Registrar"}>
-                    <h1>CADASTRE-SE</h1>
+                <h1>JÁ É CADASTRADO?</h1>
+                <Link to={"/Login"}>
+                    <h1>LOGIN</h1>
                 </Link>
-            </div>
-            <div className={styles.delete} onClick={resetdb}>
-                <i className='bx bxl-typescript'></i>
             </div>
         </div>
     )
 }
+

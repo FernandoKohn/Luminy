@@ -6,16 +6,13 @@ import placeholder from "../../img/placeholder.jpg"
 import { Link, useLocation } from "react-router-dom"
 import { Navbar } from "../layout/Navbar"
 
-interface usuario {
-    usuario: string
-    senha: string
-}
+
 
 export const Home = () => {
 
 
     const [src, setSrc] = useState<boolean>(true)
-    const [usuario, setUsuario] = useState<usuario>()
+    const [usuario, setUsuario] = useState()
     const [logged, setLogged] = useState<boolean>(false)
 
 
