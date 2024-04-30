@@ -13,7 +13,6 @@ export const Home = () => {
 
     const [src, setSrc] = useState<boolean>(true)
     const [usuario, setUsuario] = useState()
-    const [logged, setLogged] = useState<boolean>(false)
 
 
     useEffect(() => {
@@ -34,7 +33,6 @@ export const Home = () => {
 
     return (
         <div className={styles.main}>
-            <Navbar isLogged={logged}></Navbar>
             <div className={styles.home}>
                 <section className={src ? styles.section1_off : styles.section1_on}>
                     {src === false && (
@@ -70,7 +68,7 @@ export const Home = () => {
                 <section className={styles.section3}>
                     <h1>CALL TO ACTION</h1>
                     <p>DESC</p>
-                    <Link to="/Login" state={{isLogged: logged}}>;
+                    <Link to="/Login">;
                         <button className={styles.entrar}>entrar</button>
                     </Link>
                 </section>
