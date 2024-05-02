@@ -8,7 +8,7 @@
 
 .logo {
     display: flex;
-    width: 320px;
+    width: 500px;
     height: 100%;
     align-items: center;
     justify-content: space-around;
@@ -50,4 +50,10 @@
     align-items: center;
     font-size: 30px;
     padding-top: 18px;
+    gap: 25px;
+}
+
+.logged p {
+    font-size: 30px;
+    cursor: pointer;
 }

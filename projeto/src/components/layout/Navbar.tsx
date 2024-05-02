@@ -1,12 +1,19 @@
 import styles from "./Navbar.module.css"
 import Logo from "../../img/luminyLogo.png"
-import { Link } from "react-router-dom"
+import { Link, useLocation, useOutletContext } from "react-router-dom"
 
-type props = {
-    isLogged: boolean
-}
 
-export const Navbar = (props: props) => {
+export const Navbar = ({user, setUser}: any) => {
+
+    const url = useLocation()
+    
+    const logOut = () => {
+        setUser(null)
+    }
+
+    console.log(user)
+    
+
     return (
         <div className={styles.main}>
             <div className={styles.logo}>
@@ -16,15 +23,21 @@ export const Navbar = (props: props) => {
                 <Link to="/Sobre">
                     <h1>Sobre</h1>
                 </Link>
+                {user && (
+                    <Link to={`/Dashboard/${user.user}`} >
+                        <h1>Dashboard</h1>
+                    </Link>
+                )}
             </div>
             <div className={styles.userLogin}>
-                {props.isLogged ? (
+                {user ? (
                     <div className={styles.logged}>
                         <i className='bx bxs-user'></i>
+                        <p onClick={logOut}>Deslogar</p>
                     </div>
                 ) : (
                     <div className={styles.notLogged}>
-                        <Link to="/Login" state={props.isLogged}>
+                        <Link to="/Login">
                             <h1>Login</h1>
                         </Link>
                         <h1>/</h1>

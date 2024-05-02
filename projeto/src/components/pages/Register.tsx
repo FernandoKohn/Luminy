@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import styles from "./Register.module.css"
 import axios from "axios";
 import Alert from '@mui/material/Alert';
-
+import { v4 as uuidv4 } from 'uuid';
 
 export const Register = () => {
 
@@ -11,6 +11,7 @@ export const Register = () => {
     const [hasUser, sethasUser] = useState(false)
     const [message, setMessage] = useState("")
     const [messageType, setmessageType] = useState("")
+    const id = uuidv4()
 
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
@@ -22,7 +23,8 @@ export const Register = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        let data = new FormData(e.target)
+        let data = new FormData(e.target) 
+        data.set("id", id)
         let value = Object.fromEntries(data.entries())
 
         for (let index of usuario) {

@@ -1,6 +1,6 @@
 import styles from "./Login.module.css"
 import { Dispatch, SetStateAction, useEffect, useState, createContext } from "react"
-import { Link, useNavigate} from "react-router-dom"
+import { Link, useNavigate, useOutletContext} from "react-router-dom"
 import axios from "axios";
 import Alert from '@mui/material/Alert';
 
@@ -17,6 +17,8 @@ export const Login = () => {
     const [message, setMessage] = useState("")
     const [messageType, setmessageType] = useState<severity>("success")
     const navigate = useNavigate()
+    const context: any = useOutletContext()
+   
     
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
@@ -30,12 +32,11 @@ export const Login = () => {
         e.preventDefault()
         let data = new FormData(e.target)
         let value = Object.fromEntries(data.entries())
-
         for (let index of usuario) {
             if (index.user === data.get("user") && index.password == data.get("password")) {
-                navigate(`/Dashboard/${data.get("user")}`)
                 sethasUser(true)
-                
+                context.setUser(value)
+                navigate(`/Dashboard/${data.get("user")}`)
             }
         }
         

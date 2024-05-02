@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -8,7 +8,9 @@ import ErrorPage from './components/pages/ErrorPage';
 import { Login } from './components/pages/Login';
 import { Dashboard } from './components/pages/Dashboard';
 import { Register } from './components/pages/Register';
-import {Root} from "./components/pages/Root"
+import { Root } from "./components/pages/Root"
+import { ProtectedRoute } from './components/utils/ProtectedRoute';
+import { Sobre } from './components/pages/Sobre';
 
 
 
@@ -20,32 +22,43 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/Home",
-        element: <Home/>,
-        errorElement: <ErrorPage />
+        path: "/",
+        element: <Home />,
+        errorElement: <ErrorPage />,
+        index: true
       },
       {
         path: "/Login",
-        element: <Login/>,
+        element: <Login />,
         errorElement: <ErrorPage />
       },
       {
-        path: "/Dashboard/:user",
-        element: <Dashboard />,
-        errorElement: <ErrorPage />
+        element: <ProtectedRoute />,
+        children: [
+          {
+            path: "/Dashboard/:user",
+            element: <Dashboard />,
+            errorElement: <ErrorPage />
+          }
+        ]
       },
       {
         path: "/Registrar",
         element: <Register />,
         errorElement: <ErrorPage />
       },
+      {
+        path: "/Sobre",
+        element: <Sobre/>,
+        errorElement: <ErrorPage />
+      }
     ]
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
