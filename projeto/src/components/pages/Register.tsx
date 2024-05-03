@@ -3,14 +3,14 @@ import { Link } from "react-router-dom"
 import styles from "./Register.module.css"
 import axios from "axios";
 import Alert from '@mui/material/Alert';
+import { severity } from "../../types/severity";
 import { v4 as uuidv4 } from 'uuid';
 
 export const Register = () => {
 
     const [usuario, setUsuario] = useState([])
-    const [hasUser, sethasUser] = useState(false)
     const [message, setMessage] = useState("")
-    const [messageType, setmessageType] = useState("")
+    const [messageType, setmessageType] = useState<severity>("success")
     const id = uuidv4()
 
     const jsonServer = axios.create({
@@ -23,30 +23,22 @@ export const Register = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        let data = new FormData(e.target) 
+        let data = new FormData(e.target)
         data.set("id", id)
         let value = Object.fromEntries(data.entries())
-
         for (let index of usuario) {
             if (index.user === data.get("user")) {
-                sethasUser(true)
+                setmessageType("error")
+                return setMessage("Usuário já cadastrado")
             }
         }
-
-        if (hasUser === true) {
-            setMessage("Usuário já cadastrado")
-        } else {
-            jsonServer.post('', value).then((resp) => {
-                setMessage("Cadastrado com sucesso!")
-                setUsuario(resp.data)
-            })
-        }
+        jsonServer.post('', value).then((resp) => {setMessage("Cadastrado com sucesso!");setUsuario(resp.data)})
     }
 
     return (
         <div className={styles.main}>
             {message && (
-                messageType
+                <Alert severity={messageType}>{message}</Alert>
             )}
 
             <form className={styles.formContainer} onSubmit={handleSubmit}>

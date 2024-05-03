@@ -1,14 +1,11 @@
 import styles from "./Login.module.css"
-import { Dispatch, SetStateAction, useEffect, useState, createContext } from "react"
+import { useEffect, useState } from "react"
 import { Link, useNavigate, useOutletContext} from "react-router-dom"
 import axios from "axios";
 import Alert from '@mui/material/Alert';
+import { severity } from "../../types/severity";
 
 
-
-
-
-type severity = "success" | "info" | "warning" | "error"
 
 export const Login = () => {
 
@@ -34,21 +31,20 @@ export const Login = () => {
         let value = Object.fromEntries(data.entries())
         for (let index of usuario) {
             if (index.user === data.get("user") && index.password == data.get("password")) {
-                sethasUser(true)
                 context.setUser(value)
-                navigate(`/Dashboard/${data.get("user")}`)
+                setmessageType("success")
+                setMessage("Logado com sucesso")
+                return setTimeout(() => {
+                    navigate(`/Dashboard/${data.get("user")}`)
+                }, 2500);
             }
         }
-        
-        if (hasUser === false) {
-            setMessage("Usuário não cadastrado")
-            setmessageType("error")
-        }
-
+        setmessageType("error")
+        setMessage("Usuário não cadastrado")
     }
 
     const resetdb = () => {
-        jsonServer.delete("/3").catch(err => console.log(err))
+        jsonServer.delete("/1").catch(err => console.log(err))
     }
 
     return (

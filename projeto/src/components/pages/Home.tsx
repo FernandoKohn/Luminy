@@ -3,31 +3,22 @@ import { useState, useEffect } from "react"
 import light_off from "../../img/light_off.png"
 import light_on from "../../img/light_on.png"
 import placeholder from "../../img/placeholder.jpg"
-import { Link, useLocation } from "react-router-dom"
-import { Navbar } from "../layout/Navbar"
+import { Link } from "react-router-dom"
+import axios from "axios";
 
 
 
 export const Home = () => {
-
-
+    
     const [src, setSrc] = useState<boolean>(true)
-    const [usuario, setUsuario] = useState()
 
+    const jsonServer = axios.create({
+        baseURL: 'https://luminy.glitch.me/user'
+    })
 
     useEffect(() => {
-        fetch("", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(resp => resp.json())
-            .then((data) => {
-                setUsuario(data)
-            })
+        jsonServer.get("").catch(err => console.log(err))
     }, [])
-
 
 
 

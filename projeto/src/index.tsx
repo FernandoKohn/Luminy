@@ -4,13 +4,13 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './components/pages/Home';
-import ErrorPage from './components/pages/ErrorPage';
+import ErrorPage from './components/layout/ErrorPage';
 import { Login } from './components/pages/Login';
 import { Dashboard } from './components/pages/Dashboard';
 import { Register } from './components/pages/Register';
 import { Root } from "./components/pages/Root"
 import { ProtectedRoute } from './components/utils/ProtectedRoute';
-import { Sobre } from './components/pages/Sobre';
+import { Sobre } from './components/pages/About';
 
 
 
