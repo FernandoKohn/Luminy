@@ -1,0 +1,45 @@
+p {
+    font-size: 30px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 100vh;
+    
+}
+
+.navlist {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 25px;
+}
+
+#luminyLogo {
+    width: 130px;
+    padding-bottom: 40px;
+}
+
+.li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.li i {
+    font-size: 23px;
+}
+
+.userSetImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.userSetImg i {
+    font-size: 40px;
+}
