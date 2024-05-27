@@ -26,10 +26,18 @@ export const NavbarDashBoard = () => {
                     </div>
                 ) : (
                     <div className={styles.userSetImg}>
-                        <Tooltip title="Adicione uma foto">
+                        <div className={styles.user}>
+                            <Tooltip title="Adicione uma foto" arrow placement="top">
+                                <i className='bx bx-message-add' id={styles.userAdd}></i>
+                            </Tooltip>
                             <i className='bx bx-user-circle' ></i>
-                        </Tooltip>
-                        <p>{context.user.user}</p>
+                            
+                            <p>{context.user.user}</p>
+                        </div>
+                        <div className={styles.logOut}>
+                            <i className='bx bx-log-in'></i>
+                            <p>Log Out</p>
+                        </div>
                     </div>
                 )}
             </div>
