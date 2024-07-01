@@ -6,8 +6,9 @@ p {
     display: flex;
     flex-direction: column;
     width: 300px;
-    height: 100vh;
+    height: 95vh;
     justify-content: space-between;
+    background-color: blanchedalmond;
 }
 
 .navlist {
@@ -44,6 +45,7 @@ p {
     justify-content: center;
     align-items: center;
     gap: 100px;
+    background-color: aqua;
 }
 
 .user {
@@ -63,6 +65,12 @@ p {
     top: -30px;
     left: 35px;
     font-size: 40px;
+}
+
+#userAdd:hover {
+    cursor: pointer;
+    font-size: 43px;
+    transition: 0.5s;
 }
 
 .logOut {

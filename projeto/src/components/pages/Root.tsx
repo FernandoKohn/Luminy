@@ -7,7 +7,13 @@ import { Outlet, useLocation } from "react-router-dom"
 
 export const Root = () => {
 
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(
+        {
+            "user": "Teste1",
+            "password": "123456",
+            "id": "5fa9354e-d1f4-4a10-99b7-7fcec175ed5e"
+        }
+    )
     const location = useLocation()
     const url = location.pathname
 

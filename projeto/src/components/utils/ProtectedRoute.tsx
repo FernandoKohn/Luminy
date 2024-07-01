@@ -7,9 +7,9 @@ export const ProtectedRoute = () => {
     const location = useLocation()
     const url = location.pathname
 
-    if (!context.user) {
-        return <Navigate to="/Login" replace={true} />
-    }
+    // if (!context.user) {
+    //     return <Navigate to="/Login" replace={true} />
+    // }
 
     return (
         <>
