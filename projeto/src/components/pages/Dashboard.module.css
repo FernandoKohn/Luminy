@@ -5,9 +5,9 @@
 
 .dashboard {
     display: flex;
+    flex-direction: column;
     width: 100vw;
-    justify-content: center;
-    background-color: blue;
+    align-items: center;
 }
 
 .searchBar {
@@ -16,3 +16,4 @@
     height: 100px;
     background-color: rgb(223, 132, 20);
 }
+

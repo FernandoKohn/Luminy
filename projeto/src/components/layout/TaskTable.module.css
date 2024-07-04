@@ -1,0 +1,16 @@
+.taskBoard h1 {
+    font-size: 20px;
+}
+
+.taskBoard {
+    background-color: lightpink;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.taskHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
