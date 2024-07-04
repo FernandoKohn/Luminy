@@ -7,13 +7,7 @@ import { TaskTable } from "../layout/TaskTable"
 export const Dashboard = () => {
 
   const [querry, setQuerry] = useState()
-  const [recados, setRecados] = useState({
-    "Assunto": "Teste1",
-    "Nome": "Teste1",
-    "Destinatário": "Teste1",
-    "Estatus": "Teste1",
-    "Prazo": "Teste1"
-  })
+  const [recados, setRecados] = useState()
 
   const context: any = useOutletContext()
 
@@ -24,7 +18,25 @@ export const Dashboard = () => {
         <div className={styles.searchBar}>
           <input type="text" value={querry} placeholder="Buscar" id={styles.search} />
         </div>
-        <TaskTable Recados={recados}/>
+        <TaskTable recados={recados}/>
+        <div className={styles.stats}>
+          <div>
+            <h1>Recados</h1>
+            <div className={styles.lengenda}>
+              <p>Concluídos</p>
+              <p>Em andamento</p>
+              <p>Excluidos</p>
+            </div>
+            <div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div>
+            <h1>a</h1>
+          </div>
+        </div>
       </div>
     </div>
   )
