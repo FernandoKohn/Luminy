@@ -1,15 +1,23 @@
-.taskBoard h1 {
-    font-size: 20px;
-}
 
 .taskBoard {
-    background-color: lightpink;
     display: flex;
     flex-direction: column;
     width: 95%;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 25px;
+    gap: 23px;
 }
 
 .taskHeader {
     display: flex;
     flex-direction: column; 
+}
+
+.taskHeader h1 {
+    font-size: 2.5em;
+}
+
+.taskHeader p {
+    font-size: 1.2em;
 }

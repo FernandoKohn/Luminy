@@ -8,19 +8,26 @@ p {
     width: 300px;
     height: 95vh;
     justify-content: space-between;
-    background-color: blanchedalmond;
+    background-color: #F0F3F4;
+    border: 5px solid #DAE1E5;
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .navlist {
     display: flex;
     flex-direction: column;
-    padding: 40px;
     gap: 25px;
 }
 
 #luminyLogo {
     width: 130px;
     padding-bottom: 40px;
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid #DAE1E5 ;
 }
 
 .li {
@@ -45,7 +52,7 @@ p {
     justify-content: center;
     align-items: center;
     gap: 100px;
-    background-color: aqua;
+    
 }
 
 .user {

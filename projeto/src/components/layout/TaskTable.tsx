@@ -10,7 +10,7 @@ export const TaskTable = ({ recados }) => {
             <table>
                 <thead>
                     <tr>
-                        <td>Assunto</td>
+                        <td><input type="checkbox" name="checkAll" id="checkAll" />Assunto</td>
                         <td>Nome</td>
                         <td>Destinatário</td>
                         <td>Estatus</td>

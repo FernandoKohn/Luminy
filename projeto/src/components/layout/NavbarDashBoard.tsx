@@ -10,13 +10,14 @@ export const NavbarDashBoard = () => {
         <div className={styles.main}>
             <div className={styles.navlist}>
                 <img id={styles.luminyLogo} src={logo} alt="Luminy Logo" />
+                <div className={styles.line}></div>
                 <div className={styles.li}>
                     <i className='bx bxs-dashboard'></i>
-                    <p>DASHBOARD</p>
+                    <p>Dashboard</p>
                 </div>
                 <div className={styles.li}>
                     <i className='bx bxs-user-pin' ></i>
-                    <p>USUÁRIO</p>
+                    <p>Usuário</p>
                 </div>
             </div>
             <div className={styles.userInfo}>

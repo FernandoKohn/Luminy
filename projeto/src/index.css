@@ -12,17 +12,22 @@ a{
 
 body {
 
-  font-family: Amatic;
+  font-family: Nimbus;
   position: relative;
 }
 
 @font-face {
-  font-family: Amatic;
-  src: url(./fonts/AmaticSC-Regular.ttf);
+  font-family: Nimbus;
+  src: url(./fonts/NimbusSanL-Reg.otf);
+}
+
+@font-face {
+  font-family: Nimbus_bold;
+  src: url(./fonts/NimbusSanL-Bol.otf);
 }
 
 button {
-  font-family: Amatic;
+  font-family: Nimbus;
 }
 
 h1 {
