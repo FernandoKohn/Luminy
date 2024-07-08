@@ -18,22 +18,27 @@ export const Dashboard = () => {
         <div className={styles.searchBar}>
           <input type="text" value={querry} placeholder="Buscar" id={styles.search} />
         </div>
-        <TaskTable recados={recados}/>
+        <TaskTable recados={recados} />
         <div className={styles.stats}>
-          <div>
-            <h1>Recados</h1>
-            <div className={styles.lengenda}>
-              <p>Concluídos</p>
-              <p>Em andamento</p>
-              <p>Excluidos</p>
-            </div>
-            <div>
-              <div></div>
-              <div></div>
-              <div></div>
+          <div className={styles.graph}>
+            <h1>Produtividade</h1>
+            <div className={styles.legenda}></div>
+            <div className={styles.info}>
+              <div className={styles.chart}>
+                <div className={styles.chartBar}></div>
+                <div className={styles.chartNumber}>101</div>
+              </div>
+              <div className={styles.chart}>
+                <div className={styles.chartBar}></div>
+                <div className={styles.chartNumber}>101</div>
+              </div>
+              <div className={styles.chart}>
+                <div className={styles.chartBar}></div>
+                <div className={styles.chartNumber}>101</div>
+              </div>
             </div>
           </div>
-          <div>
+          <div className={styles.activeTasks}>
             <h1>a</h1>
           </div>
         </div>

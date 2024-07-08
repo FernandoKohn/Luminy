@@ -3,51 +3,70 @@ import styles from "./TaskTable.module.css"
 export const TaskTable = ({ recados }) => {
     return (
         <div className={styles.taskBoard}>
-            <div className={styles.taskHeader}>
+            <header className={styles.taskHeader}>
                 <h1>Recados</h1>
                 <p>0 Total</p>
+            </header>
+            <div className={styles.tableRow} id={styles.firstRow}>
+                <input type="checkbox" name="checkboxAll" id="checkboxAll" />
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <td><input type="checkbox" name="checkAll" id="checkAll" />Assunto</td>
-                        <td>Nome</td>
-                        <td>Destinatário</td>
-                        <td>Estatus</td>
-                        <td>Prazo</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                    </tr>
-                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                    </tr>
-                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                    </tr>
-                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className={styles.tableRow}>
+            <input type="checkbox" name="checkboxAll" id="checkboxAll" />
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+            </div>
+            <div className={styles.tableRow}>
+            <input type="checkbox" name="checkboxAll" id="checkboxAll" />
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+            </div>
+            <div className={styles.tableRow}>
+            <input type="checkbox" name="checkboxAll" id="checkboxAll" />
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+            </div>
+            <div className={styles.tableRow}>
+            <input type="checkbox" name="checkboxAll" id="checkboxAll" />
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+                <div>
+                    <p>Remetente</p>
+                </div>
+            </div>
         </div>
     )
 }

@@ -1,3 +1,11 @@
+h1 {
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
 
 .taskBoard {
     display: flex;
@@ -5,8 +13,9 @@
     width: 95%;
     background-color: #FFFFFF;
     border-radius: 20px;
-    padding: 25px;
-    gap: 23px;
+    padding: 20px;
+    padding-left: 37px;
+    gap: 15px;
 }
 
 .taskHeader {
@@ -14,10 +23,42 @@
     flex-direction: column; 
 }
 
-.taskHeader h1 {
-    font-size: 2.5em;
+
+#firstRow {
+    border-bottom: 2px solid #b5c2ca54;
+    border-top: 2px solid #b5c2ca54;
+    height: 55px;
 }
 
-.taskHeader p {
-    font-size: 1.2em;
+.tableRow {
+    display: flex;
+    align-items: center;
+}
+
+.tableRow div{
+    width: 35%;
+}
+
+input {
+    width: 2em;
+    height: 1.9em;
+    background-color: white;
+    border-radius: 30%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+input:checked {
+    background-color: rgb(116, 119, 119);
+}
+
+.tableRow {
+    width: 100%;
+    height: 40px;
+    display: flex;
 }
