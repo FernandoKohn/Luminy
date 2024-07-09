@@ -3,45 +3,25 @@ import { NavbarDashBoard } from "../layout/NavbarDashBoard"
 import styles from "./Dashboard.module.css"
 import { Link, useOutletContext } from "react-router-dom"
 import { TaskTable } from "../layout/TaskTable"
+import { Stats } from "../layout/Stats"
+import { Searchbar } from "../layout/Searchbar"
+import { CreateTask } from "../layout/CreateTask"
 
 export const Dashboard = () => {
 
-  const [querry, setQuerry] = useState()
   const [recados, setRecados] = useState()
-
-  const context: any = useOutletContext()
+  const [showCreateTask, setshowCreateTask] = useState()
 
   return (
     <div className={styles.main}>
       <NavbarDashBoard />
       <div className={styles.dashboard}>
-        <div className={styles.searchBar}>
-          <input type="text" value={querry} placeholder="Buscar" id={styles.search} />
-        </div>
+        <Searchbar />
         <TaskTable recados={recados} />
-        <div className={styles.stats}>
-          <div className={styles.graph}>
-            <h1>Produtividade</h1>
-            <div className={styles.legenda}></div>
-            <div className={styles.info}>
-              <div className={styles.chart}>
-                <div className={styles.chartBar}></div>
-                <div className={styles.chartNumber}>101</div>
-              </div>
-              <div className={styles.chart}>
-                <div className={styles.chartBar}></div>
-                <div className={styles.chartNumber}>101</div>
-              </div>
-              <div className={styles.chart}>
-                <div className={styles.chartBar}></div>
-                <div className={styles.chartNumber}>101</div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.activeTasks}>
-            <h1>a</h1>
-          </div>
-        </div>
+        <Stats />
+      </div>
+      <div className={styles.createTask}>
+        <CreateTask />
       </div>
     </div>
   )
