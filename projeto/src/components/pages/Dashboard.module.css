@@ -1,7 +1,67 @@
 .main {
     display: flex;
     padding: 30px;
-    background-color: #B5C2CA;
+    background: url("../../img/dashboardBackground.png");
+    background-size: 600px;
+}
+
+.dashboardHeader { 
+    display: flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 7.5%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.171);
+}
+
+.userInfoHeader {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 100%;
+}
+
+
+.bellIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    position: relative;
+}
+
+.bellIcon:hover {
+    cursor: pointer;
+}
+
+.dot {
+    position: absolute;
+    top: 10px;
+    left: 26px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: crimson;
+}
+
+.userPicture {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.profilePic {
+    width: 60px
 }
 
 .dashboard {
@@ -10,18 +70,7 @@
     align-items: center;
     width: 100vw;
     gap: 20px;
-}
-
-.createTask {
-    background-color: rgba(124, 131, 121, 0.658);
-    width: 99vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 5%;
 }
 
 

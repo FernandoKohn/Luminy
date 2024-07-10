@@ -19,7 +19,7 @@ export const Root = () => {
 
     return (
         <div className={styles.main}>
-            {(url == "/" || url == "/Dashboard/:user" || url == "/Sobre")  && (
+            {(url == "/" || url == "/Sobre")  && (
                 <Navbar user={user} setUser={setUser}/>
             )}
             <div className={styles.routes}>

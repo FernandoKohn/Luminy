@@ -11,6 +11,7 @@ import { Register } from './components/pages/Register';
 import { Root } from "./components/pages/Root"
 import { ProtectedRoute } from './components/utils/ProtectedRoute';
 import { Sobre } from './components/pages/About';
+import { UserPage } from './components/pages/UserPage';
 
 
 
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
           {
             path: "/Dashboard/:user",
             element: <Dashboard />,
+            errorElement: <ErrorPage />
+          },
+          {
+            path: "/User/:user",
+            element: <UserPage />,
             errorElement: <ErrorPage />
           }
         ]

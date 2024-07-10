@@ -13,9 +13,6 @@ export const ProtectedRoute = () => {
 
     return (
         <>
-            {(url == "/" || url == "/Dashboard/:user" || url == "/Sobre")  && (
-                <Navbar user={context.user} setUser={context.setUser}/>
-            )}
             <Outlet context={context}/>
         </>
     )
