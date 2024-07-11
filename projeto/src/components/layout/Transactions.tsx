@@ -1,7 +1,9 @@
 import styles from "./Transactions.module.css"
-import ifoodLogo from "../../img/transaction icons/mcdonalds.png"
+import { useState } from "react"
 
-export const Transactions = () => {
+export const Transactions = ({ userData }) => {
+    console.log(userData)
+
     return (
         <div className={styles.main}>
             <div className={styles.header}>
@@ -9,25 +11,15 @@ export const Transactions = () => {
                 <p>Adicionar</p>
             </div>
             <div className={styles.content}>
-                <div>
-                    <div>
-                        <div>
-                            <img className={styles.logo} src={ifoodLogo} alt="" />
+                {userData && (
+                    userData.cartoes.map((userData: any) => {
+                        <div className={styles.transactionCard} key={userData.cartoes.visa}>
+                            <div>
+                                <img src={require(`../../img/transaction icons/${userData.cartoes.visa}.png`)} alt="Icone" />
+                            </div>
                         </div>
-                        <div>
-
-                        </div>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-                <div>
-
-                </div>
-                <div>
-
-                </div>
+                    })
+                )}
             </div>
         </div>
     )

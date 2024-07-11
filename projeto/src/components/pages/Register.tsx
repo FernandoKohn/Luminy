@@ -12,6 +12,18 @@ export const Register = () => {
     const [message, setMessage] = useState("")
     const [messageType, setmessageType] = useState<severity>("success")
     const id = uuidv4()
+    
+    const cartoes = [
+        {
+            "visa": {
+                "Compras":300,
+                "Financas":400,
+                "Comida": 500            
+            },
+            "mastercard": {},
+            "elo": {}
+        }
+    ]
 
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
@@ -20,12 +32,14 @@ export const Register = () => {
     useEffect((() => {
         jsonServer.get('').then(resp => setUsuario(resp.data)).catch(err => console.log(err))
     }), [])
+    
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        let data = new FormData(e.target)
+        var data = new FormData(e.target)
         data.set("id", id)
-        let value = Object.fromEntries(data.entries())
+        let value: any = Object.fromEntries(data.entries())
+        value.cartoes = cartoes
         for (let index of usuario) {
             if (index.user === data.get("user")) {
                 setmessageType("error")

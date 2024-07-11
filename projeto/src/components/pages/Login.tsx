@@ -31,7 +31,7 @@ export const Login = () => {
         let value = Object.fromEntries(data.entries())
         for (let index of usuario) {
             if (index.user === data.get("user") && index.password == data.get("password")) {
-                context.setUser(value)
+                jsonServer.get(`${index.user}`).then(resp => context.setUser(resp.data)).catch(err => console.log(err))
                 setmessageType("success")
                 setMessage("Logado com sucesso")
                 return setTimeout(() => {

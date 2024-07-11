@@ -9,10 +9,21 @@ export const Root = () => {
 
     const [user, setUser] = useState(
         {
-            "user": "Teste1",
-            "password": "123456",
-            "id": "5fa9354e-d1f4-4a10-99b7-7fcec175ed5e"
-        }
+            "user": "fernandokohn",
+            "password": "fernandokohn",
+            "id": "fe83075e-51cf-447c-be98-ed5cd9579c72",
+            "cartoes": [
+              {
+                "visa": {
+                  "Compras": 300,
+                  "Financas": 400,
+                  "Comida": 500
+                },
+                "mastercard": {},
+                "elo": {}
+              }
+            ]
+          }
     )
     const location = useLocation()
     const url = location.pathname
