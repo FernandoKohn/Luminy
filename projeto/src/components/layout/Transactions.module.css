@@ -1,0 +1,20 @@
+.main {
+    width: 560px;
+    height: 400px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.content {
+    background-color: antiquewhite;
+}
+
+.logo {
+    border-radius: 15px;
+}
