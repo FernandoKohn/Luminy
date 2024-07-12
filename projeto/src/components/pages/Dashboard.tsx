@@ -16,11 +16,11 @@ export const Dashboard = () => {
 
   return (
     <div className={styles.main}>
-      <DashboardHeader userData={user} />
+      <DashboardHeader userData={userData} />
       <NavbarDashBoard />
       <div className={styles.dashboard}>
         <div className={styles.section1}>
-          <Transactions userData={user}/>
+          <Transactions userData={userData}/>
         </div>
       </div>
     </div>

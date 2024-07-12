@@ -12,18 +12,7 @@ export const Register = () => {
     const [message, setMessage] = useState("")
     const [messageType, setmessageType] = useState<severity>("success")
     const id = uuidv4()
-    
-    const cartoes = [
-        {
-            "visa": {
-                "Compras":300,
-                "Financas":400,
-                "Comida": 500            
-            },
-            "mastercard": {},
-            "elo": {}
-        }
-    ]
+
 
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
@@ -39,7 +28,9 @@ export const Register = () => {
         var data = new FormData(e.target)
         data.set("id", id)
         let value: any = Object.fromEntries(data.entries())
-        value.cartoes = cartoes
+        value.visa = []
+        value.mastercard = []
+        value.elo = []
         for (let index of usuario) {
             if (index.user === data.get("user")) {
                 setmessageType("error")
