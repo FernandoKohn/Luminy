@@ -11,6 +11,8 @@ export const Dashboard = () => {
 
   const [recados, setRecados] = useState()
   const [showCreateTask, setshowCreateTask] = useState()
+  const [card, setCard] = useState("visa")
+
   const user: any = useOutletContext()
   const userData = user.user
 
@@ -20,7 +22,7 @@ export const Dashboard = () => {
       <NavbarDashBoard />
       <div className={styles.dashboard}>
         <div className={styles.section1}>
-          <Transactions userData={userData}/>
+          <Transactions card={card} userData={userData}/>
         </div>
       </div>
     </div>

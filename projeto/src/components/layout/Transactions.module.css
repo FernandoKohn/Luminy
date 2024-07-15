@@ -3,18 +3,71 @@
     height: 400px;
     background-color: white;
     border-radius: 20px;
+    position: relative;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    z-index: 1;
+    position: relative;
 }
+
 
 .content {
-    background-color: antiquewhite;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    position: absolute;
+    bottom: 2%;
+    z-index: 0;
 }
 
-.logo {
+.accordion {
+    color: white;
+    background-color: black;
+}
+
+.transactionsCard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftDiv {
+    display: flex;
+    gap: 10px;
+    width: 210px;
+}
+
+.leftDiv img {
     border-radius: 15px;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.infoDayHour{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    left: 60%;
+    top: -20%;
+}
+
+.rightDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

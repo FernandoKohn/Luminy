@@ -10,7 +10,6 @@ import { severity } from "../../types/severity";
 export const Login = () => {
 
     const [usuario, setUsuario] = useState([])
-    const [hasUser, sethasUser] = useState(false)
     const [message, setMessage] = useState("")
     const [messageType, setmessageType] = useState<severity>("success")
     const navigate = useNavigate()
