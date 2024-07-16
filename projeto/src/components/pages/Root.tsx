@@ -40,7 +40,6 @@ export const Root = () => {
       ] 
     }
   )
-  console.log(user.user)
 
   const location = useLocation()
   const url = location.pathname

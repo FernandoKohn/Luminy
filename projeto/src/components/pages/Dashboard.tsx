@@ -9,12 +9,11 @@ import { Transactions } from "../layout/Transactions"
 
 export const Dashboard = () => {
 
-  const [recados, setRecados] = useState()
-  const [showCreateTask, setshowCreateTask] = useState()
   const [card, setCard] = useState("visa")
 
   const user: any = useOutletContext()
   const userData = user.user
+  const setUser = user.setUser
 
   return (
     <div className={styles.main}>
@@ -22,7 +21,7 @@ export const Dashboard = () => {
       <NavbarDashBoard />
       <div className={styles.dashboard}>
         <div className={styles.section1}>
-          <Transactions card={card} userData={userData}/>
+          <Transactions card={card} userData={userData} setUser={setUser}/>
         </div>
       </div>
     </div>
