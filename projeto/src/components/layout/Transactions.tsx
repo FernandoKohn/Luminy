@@ -7,45 +7,47 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Select } from "antd";
 import { InputNumber } from "antd";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export const Transactions = ({ userData, card, setUser }) => {
 
-    const [transaction, setTransaction] = useState({})
     const [selectValue, setSelectValue] = useState({})
+    const [mutableUser, setmutableUser] = useState(userData)
 
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
     })
 
-    const handleSelect = (value : any) => {
+    const handleSelect = (value: any) => {
         setSelectValue(value)
     }
 
     const getDay = (day: number) => {
-        if(day === 1){
+        if (day === 1) {
             return "Segunda";
-          }
-          else if(day === 2){
-            return "Terça";
-          }
-          else if(day === 3){
-            return "Quarta";
-          }
-          else if(day === 4){
-            return "Quinta";
-          }
-          else if(day === 5){
-            return "Sexta";
-          }
-          else if(day === 6){
-            return "Sabado";
-          }
-          else{
-            return "Domingo";
-          }
         }
+        else if (day === 2) {
+            return "Terça";
+        }
+        else if (day === 3) {
+            return "Quarta";
+        }
+        else if (day === 4) {
+            return "Quinta";
+        }
+        else if (day === 5) {
+            return "Sexta";
+        }
+        else if (day === 6) {
+            return "Sabado";
+        }
+        else {
+            return "Domingo";
+        }
+    }
 
     const handleChange = (event: any) => {
+        
         event.preventDefault()
         let data = new FormData(event.target)
         let value: any = Object.fromEntries(data.entries())
@@ -54,22 +56,40 @@ export const Transactions = ({ userData, card, setUser }) => {
         value.id = selectValue
         value.dia = getDay(dia)
         value.hora = hora
+
         if (card == "visa") {
-            userData.visa.push(value)
+            mutableUser.visa.push(value)
         } else if (card == "mastercard") {
-            userData.mastercard.push(value)
+            mutableUser.mastercard.push(value)
         } else if (card == "elo") {
-            userData.elo.push(value)
+            mutableUser.elo.push(value)
         }
-        jsonServer.post('/id/:user', value).then((resp) => {setUser(resp.data)})
+
+        if (mutableUser.visa.length > 4) {
+            mutableUser.visa.shift()
+        } else if (mutableUser.mastercard.lengt > 4) {
+            mutableUser.mastercard.shift()
+        } else if (mutableUser.elo.lengt > 4) {
+            mutableUser.elo.shift()
+        }
+
+        jsonServer.patch(`/${userData.id}`, mutableUser).then((resp) => { setUser(resp.data) })
+    }
+
+    const resetdb = () => {
+        mutableUser.visa = []
+        jsonServer.patch(`/${userData.id}`, mutableUser).then((resp) => { setUser(resp.data) })
     }
 
 
     return (
         <div className={styles.main}>
             <div className={styles.header}>
+                <div className={styles.delete} onClick={resetdb}>
+                    <i className='bx bx-revision'></i>
+                </div>
                 <p>Transações recentes</p>
-                <Accordion sx={{ backgroundColor: "black", color: "white", width: "240px", display:"flex", flexDirection: "column"}}>
+                <Accordion sx={{ backgroundColor: "black", color: "white", width: "240px", display: "flex", flexDirection: "column" }}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
                         aria-controls="panel1-content"
@@ -80,8 +100,8 @@ export const Transactions = ({ userData, card, setUser }) => {
                     <AccordionDetails>
                         <form onSubmit={handleChange} className={styles.transactionForm}>
                             <Select
-                                
-                                showSearch 
+
+                                showSearch
                                 onChange={handleSelect}
                                 style={{ width: 200 }}
                                 placeholder="No que foi gasto?"
@@ -93,31 +113,31 @@ export const Transactions = ({ userData, card, setUser }) => {
                                     {
                                         value: 'Comida',
                                         label: 'Comida',
-                                       
+
                                     },
                                     {
                                         value: 'Compras',
                                         label: 'Compras',
-                                       
+
                                     },
                                     {
                                         value: 'Finanças',
                                         label: 'Finanças',
-                                       
+
                                     },
                                     {
                                         value: 'Lazer',
                                         label: 'Lazer',
-                                        
+
                                     },
                                     {
                                         value: 'Viagem',
                                         label: 'Viagem',
-                                        
+
                                     },
                                 ]}
                             />
-                            <InputNumber required maxLength={7} name="valor" prefix="R$" placeholder="Valor" style={{ width: '200px'}} />
+                            <InputNumber required maxLength={7} name="valor" prefix="R$" placeholder="Valor" style={{ width: '200px' }} />
                             <button type="submit">Cadastrar</button>
                         </form>
                     </AccordionDetails>
@@ -125,7 +145,7 @@ export const Transactions = ({ userData, card, setUser }) => {
             </div>
             <div className={styles.content}>
                 {(userData && card == "visa") && (
-                    userData.visa.map((compra: any, index: any) => (
+                    userData.visa.toReversed().map((compra: any, index: any) => (
                         <div key={index} className={styles.transactionsCard}>
                             <div className={styles.leftDiv}>
                                 <img src={require(`../../img/transactionIcons/${compra.id}.png`)} alt="icone" />

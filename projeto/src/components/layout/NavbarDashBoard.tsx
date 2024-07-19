@@ -4,7 +4,6 @@ import { Link, useNavigate, useOutletContext, useParams } from "react-router-dom
 import Tooltip from '@mui/material/Tooltip';
 
 export const NavbarDashBoard = () => {
-    const userUrl = useParams()
     const user: any = useOutletContext()
     const userData = user.user
     const navigate = useNavigate()

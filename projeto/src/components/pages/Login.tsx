@@ -24,17 +24,18 @@ export const Login = () => {
         jsonServer.get('').then(resp => setUsuario(resp.data)).catch(err => console.log(err))
     }), [])
 
+
     const handleSubmit = (e: any) => {
         e.preventDefault()
         let data = new FormData(e.target)
         let value = Object.fromEntries(data.entries())
         for (let index of usuario) {
             if (index.user === data.get("user") && index.password == data.get("password")) {
-                jsonServer.get(`${index.user}`).then(resp => context.setUser(resp.data)).catch(err => console.log(err))
+                jsonServer.get(`${index.id}`).then(resp => context.setUser(resp.data)).catch(err => console.log(err))
                 setmessageType("success")
                 setMessage("Logado com sucesso")
                 return setTimeout(() => {
-                    navigate(`/Dashboard/${data.get("user")}`)
+                    navigate(`/Dashboard/${data.get("user")}`, {replace: true})
                 }, 2500);
             }
         }
@@ -43,7 +44,9 @@ export const Login = () => {
     }
 
     const resetdb = () => {
-        jsonServer.delete("/1").catch(err => console.log(err))
+        for (let user of usuario) {
+            jsonServer.delete(`/${user.id}`).catch(err => console.log(err))
+        }
     }
 
     return (

@@ -14,6 +14,18 @@
     position: relative;
 }
 
+.delete {
+    position: absolute;
+    z-index: 10;
+    top: 26px;
+    left: 210px;
+}
+
+.delete i:hover {
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .transactionForm {
     display: flex;
     flex-direction: column;
@@ -33,6 +45,7 @@
 
 .content {
     width: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -75,6 +88,7 @@
 
 .infoDayHour{
     display: flex;
+    width: 110px;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
@@ -83,7 +97,7 @@
 
 .dot {
     position: absolute;
-    left: 60%;
+    left: 50%;
     top: -20%;
 }
 

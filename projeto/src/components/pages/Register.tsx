@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styles from "./Register.module.css"
 import axios from "axios";
 import Alert from '@mui/material/Alert';
@@ -11,7 +11,9 @@ export const Register = () => {
     const [usuario, setUsuario] = useState([])
     const [message, setMessage] = useState("")
     const [messageType, setmessageType] = useState<severity>("success")
+    const navigate = useNavigate()
     const id = uuidv4()
+
 
 
     const jsonServer = axios.create({
@@ -24,21 +26,34 @@ export const Register = () => {
     
 
     const handleSubmit = (e: any) => {
+
         e.preventDefault()
-        var data = new FormData(e.target)
-        data.set("id", id)
+        let data = new FormData(e.target)
         let value: any = Object.fromEntries(data.entries())
+        value.id = id
         value.visa = []
         value.mastercard = []
         value.elo = []
+
         for (let index of usuario) {
             if (index.user === data.get("user")) {
                 setmessageType("error")
                 return setMessage("Usuário já cadastrado")
             }
         }
+
         jsonServer.post('', value).then((resp) => {setMessage("Cadastrado com sucesso!");setUsuario(resp.data)})
+
+        if (usuario.length >= 1) {
+            var deletID = usuario[0].id
+            jsonServer.delete(`/${deletID}`).then(resp => setUsuario(resp.data)).catch(err => console.log(err))
+        }
+
+        return setTimeout(() => {
+            navigate("/Login")
+        }, 3500)
     }
+    
 
     return (
         <div className={styles.main}>
