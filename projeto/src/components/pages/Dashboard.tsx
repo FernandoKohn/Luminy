@@ -4,6 +4,10 @@ import styles from "./Dashboard.module.css"
 import { useOutletContext } from "react-router-dom"
 import { DashboardHeader } from "../layout/DashboardHeader"
 import { Transactions } from "../layout/Transactions"
+import { Graph } from "../layout/Graph"
+
+
+
 
 
 
@@ -22,6 +26,7 @@ export const Dashboard = () => {
       <div className={styles.dashboard}>
         <div className={styles.section1}>
           <Transactions card={card} userData={userData} setUser={setUser}/>
+          <Graph/>
         </div>
       </div>
     </div>

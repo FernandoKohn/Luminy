@@ -1,6 +1,6 @@
 .main {
-    width: 560px;
-    height: 400px;
+    width: 620px;
+    height: 430px;
     background-color: white;
     border-radius: 20px;
     position: relative;
@@ -88,7 +88,7 @@
 
 .infoDayHour{
     display: flex;
-    width: 110px;
+    width: 130px;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
@@ -97,7 +97,7 @@
 
 .dot {
     position: absolute;
-    left: 50%;
+    left: 58%;
     top: -20%;
 }
 

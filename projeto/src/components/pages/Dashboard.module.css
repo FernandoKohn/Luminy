@@ -24,7 +24,8 @@ p {
 
 .section1 {
     display: flex;
-    width: 1350px;
+    width: 1260px;
+    justify-content: space-between;
 }
 
 
