@@ -8,5 +8,29 @@
 
 .main header {
     display: flex;
-    background-color: aquamarine;
+    padding: 22px;
+    justify-content: space-between;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    gap: 10px;
+}
+
+.ball {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #5B7AD8;
+}
+
+.chartContainer {
+    background-color: #5B7AD8;
+    padding-top: 30px;
+    height: 350px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }

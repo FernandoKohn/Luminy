@@ -14,10 +14,12 @@ import { Graph } from "../layout/Graph"
 export const Dashboard = () => {
 
   const [card, setCard] = useState("visa")
+  const [budget, setBudget] = useState(1000)
 
   const user: any = useOutletContext()
   const userData = user.user
   const setUser = user.setUser
+  
 
   return (
     <div className={styles.main}>
@@ -26,7 +28,7 @@ export const Dashboard = () => {
       <div className={styles.dashboard}>
         <div className={styles.section1}>
           <Transactions card={card} userData={userData} setUser={setUser}/>
-          <Graph/>
+          <Graph  userData={userData} Budget={budget}/>
         </div>
       </div>
     </div>
