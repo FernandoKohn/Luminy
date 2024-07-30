@@ -14,7 +14,7 @@ import { Graph } from "../layout/Graph"
 export const Dashboard = () => {
 
   const [card, setCard] = useState("visa")
-  const [budget, setBudget] = useState(1000)
+  const [budget, setBudget] = useState(10000)
 
   const user: any = useOutletContext()
   const userData = user.user

@@ -1,18 +1,18 @@
 import styles from './Graph.module.css'
 import ReactEcharts from "echarts-for-react";
 import axios from "axios";
-import { useEffect } from 'react';
 
 export const Graph = ({ Budget, userData }) => {
-  
-  var values: any = {}
+
+  let values: any = {}
+  let valuesSum: any = 0
 
   for (var visa of userData.visa) {
     if (values[visa.id] == undefined) {
       values[visa.id] = 0
     }
     values[visa.id] += parseInt(visa.valor)
-    
+
   }
 
   for (var mastercard of userData.mastercard) {
@@ -20,7 +20,7 @@ export const Graph = ({ Budget, userData }) => {
       values[mastercard.id] = 0
     }
     values[mastercard.id] += parseInt(mastercard.valor)
-    
+
   }
 
   for (var elo of userData.elo) {
@@ -28,74 +28,88 @@ export const Graph = ({ Budget, userData }) => {
       values[elo.id] = 0
     }
     values[elo.id] += parseInt(elo.valor)
-    
+
   }
 
-  console.log(values)
-  
+  for (const [key, value] of Object.entries(values)) {
+    valuesSum += value
+  }
+
+  const getRandom = () => {
+    var random = Math.random()
+    return random >= 0.5? random1 : random2
+  }
+
+  const random1 = valuesSum / 2
+  const random2 = valuesSum * 2
+
+  console.log(random1)
+  console.log(random2)
+
   const option = {
-    color: ['#67F9D8', '#FFE434', '#56A3F1', '#FF917C'],
-    radar: [
-      {
-        indicator: [
-          { text: 'Comida' },
-          { text: 'Compras' },
-          { text: 'Finanças' },
-          { text: 'Lazer' },
-          { text: 'Viagem' }
-        ],
-        center: ['50%', '50%'],
-        radius: 130,
-        startAngle: 90,
-        splitNumber: 4,
-        shape: 'circle',
-        axisName: {
-          formatter: '{value}',
-          color: '#000000'
-        },
-        splitArea: {
-          areaStyle: {
-            color: ['rgba(116, 116, 116, 0)', 'rgba(116, 116, 116, 0)', 'rgba(116, 116, 116, 0)', 'rgba(116, 116, 116, 0)'],
-            shadowColor: 'rgba(0, 0, 0, 0.2)',
-            shadowBlur: 10
-          }
-        },
-        axisLine: {
-          lineStyle: {
-            color: '#8f8f8f'
-          }
-        },
-        splitLine: {
-          lineStyle: {
-            color: 'rgba(116, 116, 116, 0)'
-          }
+
+    radar: {
+      indicator: [
+        { name: 'Comida'},
+        { name: 'Compra'},
+        { name: 'Finanças'},
+        { name: 'Lazer'},
+        { name: 'Viagens'},
+        { name: 'Etc',}
+      ],
+      center: ['50%', '50%'],
+      radius: 140,
+      startAngle: 90,
+      splitNumber: 5,
+      shape: 'circle',
+      axisName: {
+        formatter: '{value}',
+        color: 'black'
+      },
+      splitLine: {
+        lineStyle: {
+          color: 'rgba(0, 0, 0, 0)'
         }
       },
-      
-    ],
+      splitArea: {
+        areaStyle: {
+          color: "rgba(0, 0, 0, 0)"
+        }
+      },
+      axisLine: {
+        lineStyle: {
+          color: 'black'
+        }
+      },
+    },
     series: [
       {
+        name: 'Budget vs spending',
         type: 'radar',
-        emphasis: {
-          lineStyle: {
-            width: 4
-          }
-        },
         data: [
           {
-            value: [100, 8, 0.4, -80, 2000],
-            name: 'Data A'
+            value:[30,30,30,30,30,30],
+            name: 'Allocated Budget',
+            symbolSize: 1,
+            lineStyle: {
+              color:"black",
+              width: 1,
+            },
           },
           {
-            value: [60, 5, 0.3, -100, 1500],
-            name: 'Data B',
+            value: [values.Comida, values.Compras, values.Finanças, values.Lazer, values.Viagem],
+            name: 'Actual Spending',
+            symbolSize: 1,
             areaStyle: {
-              color: 'rgba(255, 228, 52, 0.6)'
+              color: "#bfff00"
+            },
+            lineStyle: {
+              color:"rgba(0, 0, 0, 0)"
             }
+            
           }
         ]
-      },
-    
+      }
     ]
   };
 
@@ -109,8 +123,8 @@ export const Graph = ({ Budget, userData }) => {
           <p>Gastos</p>
         </div>
       </header>
-      <div className={styles.chartContainer}>
-        <ReactEcharts className={styles.chart} option={option} />
+      <div>
+        <ReactEcharts className={styles.teste} option={option} />
       </div>
     </div>
   )
