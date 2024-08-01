@@ -25,7 +25,9 @@ p {
 .section1 {
     display: flex;
     width: 1260px;
+    height: 820px;
     justify-content: space-between;
+    background-color: aquamarine;
 }
 
 

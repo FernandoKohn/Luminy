@@ -65,11 +65,11 @@ export const Transactions = ({ userData, card, setUser }) => {
             mutableUser.elo.push(value)
         }
 
-        if (mutableUser.visa.length > 4) {
+        if (mutableUser.visa.length > 6) {
             mutableUser.visa.shift()
-        } else if (mutableUser.mastercard.lengt > 4) {
+        } else if (mutableUser.mastercard.lengt > 6) {
             mutableUser.mastercard.shift()
-        } else if (mutableUser.elo.lengt > 4) {
+        } else if (mutableUser.elo.lengt > 6) {
             mutableUser.elo.shift()
         }
 
@@ -100,7 +100,6 @@ export const Transactions = ({ userData, card, setUser }) => {
                     <AccordionDetails>
                         <form onSubmit={handleChange} className={styles.transactionForm}>
                             <Select
-
                                 showSearch
                                 onChange={handleSelect}
                                 style={{ width: 200 }}
@@ -133,6 +132,11 @@ export const Transactions = ({ userData, card, setUser }) => {
                                     {
                                         value: 'Viagem',
                                         label: 'Viagem',
+
+                                    },
+                                    {
+                                        value: 'Etc',
+                                        label: 'Etc',
 
                                     },
                                 ]}

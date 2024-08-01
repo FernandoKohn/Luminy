@@ -6,6 +6,7 @@ export const Graph = ({ Budget, userData }) => {
 
   let values: any = {}
   let valuesSum: any = 0
+ 
 
   for (var visa of userData.visa) {
     if (values[visa.id] == undefined) {
@@ -35,16 +36,6 @@ export const Graph = ({ Budget, userData }) => {
     valuesSum += value
   }
 
-  const getRandom = () => {
-    var random = Math.random()
-    return random >= 0.5? random1 : random2
-  }
-
-  const random1 = valuesSum / 2
-  const random2 = valuesSum * 2
-
-  console.log(random1)
-  console.log(random2)
 
   const option = {
 
@@ -88,7 +79,7 @@ export const Graph = ({ Budget, userData }) => {
         type: 'radar',
         data: [
           {
-            value:[30,30,30,30,30,30],
+            value:[values.Comida / 1.8 , values.Compras / 1.8, values.Finanças/ 1.8, values.Lazer / 1.8, values.Viagem / 1.8, values.Etc / 1.8],
             name: 'Allocated Budget',
             symbolSize: 1,
             lineStyle: {
@@ -97,7 +88,7 @@ export const Graph = ({ Budget, userData }) => {
             },
           },
           {
-            value: [values.Comida, values.Compras, values.Finanças, values.Lazer, values.Viagem],
+            value: [values.Comida, values.Compras, values.Finanças, values.Lazer, values.Viagem, values.Etc],
             name: 'Actual Spending',
             symbolSize: 1,
             areaStyle: {

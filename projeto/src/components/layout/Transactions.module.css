@@ -1,6 +1,6 @@
 .main {
     width: 620px;
-    height: 430px;
+    height: 450px;
     background-color: white;
     border-radius: 20px;
     position: relative;
@@ -48,10 +48,11 @@
     height: 80%;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 10px;
     padding: 20px;
     position: absolute;
-    bottom: 2%;
+    left: -70px;
+    bottom: 7%;
     z-index: 0;
 }
 
@@ -68,6 +69,8 @@
 .transactionsCard {
     display: flex;
     justify-content: space-between;
+    transform: scale(0.8);
+    width: 45em;
 }
 
 .leftDiv {
