@@ -1,0 +1,63 @@
+.main {
+    width: 450px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+}
+
+.cards {
+    display: flex;
+    width: 100%;
+    height: 250px;
+    padding: 20px;
+    background-color: aqua;
+    position: relative;
+}
+
+.mainCard {
+    position: absolute;
+    bottom: 0;
+    width: 408px;
+    height: 210px;
+    border-radius: 15px;
+    background-color: #C6EF4E;
+    padding: 25px;
+}
+
+.cardHeader {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cardHeader img {
+    width: 15%;
+}
+
+.value {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.info {
+    width: 105%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.spireDate {
+    display: flex;
+    gap: 25px;
+}
+
+.info img {
+    width: 25%;
+}

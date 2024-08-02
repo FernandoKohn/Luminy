@@ -5,6 +5,7 @@ import { useOutletContext } from "react-router-dom"
 import { DashboardHeader } from "../layout/DashboardHeader"
 import { Transactions } from "../layout/Transactions"
 import { Graph } from "../layout/Graph"
+import { Cards } from "../layout/Cards"
 
 
 
@@ -28,7 +29,8 @@ export const Dashboard = () => {
       <div className={styles.dashboard}>
         <div className={styles.section1}>
           <Transactions card={card} userData={userData} setUser={setUser}/>
-          <Graph  userData={userData} Budget={budget}/>
+          <Graph userData={userData} Budget={budget}/>
+          <Cards />
         </div>
       </div>
     </div>
