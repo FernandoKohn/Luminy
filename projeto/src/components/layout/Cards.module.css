@@ -2,6 +2,8 @@
     width: 450px;
     height: 380px;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     background-color: white;
     border-radius: 20px;
@@ -12,20 +14,44 @@
 .cards {
     display: flex;
     width: 100%;
-    height: 250px;
+    height: 380px;
     padding: 20px;
-    background-color: aqua;
     position: relative;
 }
 
-.mainCard {
+.frontCard {
     position: absolute;
-    bottom: 0;
+    bottom: 128px;
     width: 408px;
     height: 210px;
     border-radius: 15px;
     background-color: #C6EF4E;
     padding: 25px;
+    z-index: 1;
+    
+}
+
+.backCardPlat {
+    width: 350px;
+    height: 100px;
+    position: absolute;
+    background-color: #E6E6DC;
+    border-radius: 15px;
+    top: 8px;
+    left: 50px;
+}
+
+.backCardPlat header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px 20px;
+    font-size: 0.8em;
+}
+
+.backCardPlat:hover {
+    cursor: pointer;
+    transform: scale(1.02);
 }
 
 .cardHeader {
@@ -60,4 +86,59 @@
 
 .info img {
     width: 25%;
+}
+
+#backcardOuro {
+    background-color: #C6EF4E;
+}
+
+#frontCardPlat {
+    background-color: #E6E6DC;
+}
+
+#blasterCard {
+    width: 15%;
+}
+
+.bottomInfo {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 85px;
+    right: 35px;
+    gap: 10px;
+}
+
+.cardInfo {
+    width: 380px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardInfo div {
+    display: flex;
+    font-size: 0.8em;
+    gap: 5px;
+}
+
+.newCard {
+    width: 408px;
+    height: 50px;
+    background-color: black;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newCard h1 {
+    color: white;
+    font-size: 15px;
+}
+
+.newCard i {
+    color: white;
+    margin-right: 10px;
 }
