@@ -11,6 +11,25 @@
     border: 1px solid rgba(0, 0, 0, 0.178);
 }
 
+.addCard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.addCard h1 {
+    font-size: 1.2em;
+}
+
+.line {
+    margin-top: 5px;
+    width: 75px;
+    height: 2px;
+    background-color: #C6EF4E;
+}
+
 .cards {
     display: flex;
     width: 100%;
@@ -74,6 +93,7 @@
 
 .info {
     width: 105%;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
