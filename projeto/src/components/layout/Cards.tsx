@@ -1,8 +1,5 @@
 import { useState } from "react"
 import styles from "./Cards.module.css"
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 
@@ -13,7 +10,7 @@ export const Cards = () => {
   const [newCard, setNewCard] = useState(false)
 
 
-  const handleChange = e => {
+  const handleSelect = e => {
     setCard(e.target.value)
   }
 
@@ -23,13 +20,7 @@ export const Cards = () => {
         <div className={styles.addCard}>
           <h1>Adicione um cartão</h1>
           <div className={styles.line}></div>
-          <FormControl sx={{ m: 1, minWidth: 80 }}>
-            <InputLabel id="demo-simple-select-autowidth-label">Bandeira</InputLabel>
-            <Select labelId="demo-simple-select-autowidth-label" id="demo-simple-select-autowidth" onChange={handleChange} autoWidth label="Age">
-              <MenuItem value={"bisa"}>Bisa</MenuItem>
-              <MenuItem value={"fastercard"}>Faster Card</MenuItem>
-            </Select>
-          </FormControl>
+          
           <div className={styles.newCard} onClick={() => setNewCard(!newCard)}>
             <i className='bx bx-plus'></i>
             <h1>Adicionar novo cartão</h1>
