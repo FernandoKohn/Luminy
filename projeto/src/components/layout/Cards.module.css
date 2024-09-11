@@ -23,8 +23,21 @@
     font-size: 1.2em;
 }
 
+#arrowBack {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    font-size: 1.2em;
+}
+
+#arrowBack:hover {
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
 .line {
     margin-top: 5px;
+    margin-bottom: 20px;
     width: 75px;
     height: 2px;
     background-color: #C6EF4E;
@@ -161,4 +174,5 @@
 .newCard i {
     color: white;
     margin-right: 10px;
+    font-size: 0.4em;
 }

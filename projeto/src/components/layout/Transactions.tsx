@@ -8,6 +8,7 @@ import { Select } from "antd";
 import { InputNumber } from "antd";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { getDay } from "../functions/functions";
 
 export const Transactions = ({ userData, card, setUser }) => {
 
@@ -22,29 +23,6 @@ export const Transactions = ({ userData, card, setUser }) => {
         setSelectValue(value)
     }
 
-    const getDay = (day: number) => {
-        if (day === 1) {
-            return "Segunda";
-        }
-        else if (day === 2) {
-            return "Terça";
-        }
-        else if (day === 3) {
-            return "Quarta";
-        }
-        else if (day === 4) {
-            return "Quinta";
-        }
-        else if (day === 5) {
-            return "Sexta";
-        }
-        else if (day === 6) {
-            return "Sabado";
-        }
-        else {
-            return "Domingo";
-        }
-    }
 
     const handleChange = (event: any) => {
         

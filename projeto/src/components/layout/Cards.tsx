@@ -1,17 +1,47 @@
 import { useState } from "react"
 import styles from "./Cards.module.css"
-import Select from '@mui/material/Select';
+import { Select } from "antd";
+import { InputNumber } from "antd";
+import { DateInput } from 'rsuite';
+import 'rsuite/DateInput/styles/index.css';
+import { getMonth } from "../functions/functions";
+
 
 
 export const Cards = () => {
 
   const [card, setCard] = useState('')
+  const [cardFlag, setCardFlag] = useState()
+  const [cardLimit, setCardLimit] = useState()
+  const [cardExpire, setCardExpire] = useState()
   const [toggleCard, setToggleCard] = useState(false)
   const [newCard, setNewCard] = useState(false)
 
+  
 
   const handleSelect = e => {
     setCard(e.target.value)
+  }
+
+  const handleCardFlag = value => {
+    return setCardFlag(value)
+  }
+
+  const handleCardLimit = value => {
+    return setCardLimit(value)
+  }
+
+  const handleCardExpire = value => {
+    return setCardExpire(value)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    const test = new Date(cardExpire)
+    console.log(test)
+    console.log(cardExpire)
+    console.log(test.getMonth())
+    console.log(test.getFullYear())
   }
 
   return (
@@ -19,12 +49,36 @@ export const Cards = () => {
       {newCard === true ? (
         <div className={styles.addCard}>
           <h1>Adicione um cartão</h1>
+          <i className='bx bx-arrow-back' id={styles.arrowBack} onClick={() => setNewCard(!newCard)}></i>
           <div className={styles.line}></div>
-          
-          <div className={styles.newCard} onClick={() => setNewCard(!newCard)}>
-            <i className='bx bx-plus'></i>
-            <h1>Adicionar novo cartão</h1>
-          </div>
+          <form onSubmit={handleSubmit}>
+            <Select
+              showSearch
+              onChange={handleCardFlag}
+              style={{ width: 408, marginTop: 20 }}
+              placeholder="Bandeira do cartão"
+              optionFilterProp="label"
+              filterSort={(optionA, optionB) =>
+                (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+              }
+              options={[
+                {
+                  value: 'bisa',
+                  label: 'Bisa',
+                },
+                {
+                  value: 'fastercard',
+                  label: 'Faster Card',
+                }
+              ]}
+            />
+            <InputNumber onChange={handleCardLimit} required maxLength={7} name="valor" prefix="R$" placeholder="Limite" style={{ width: 408, marginTop: 30, marginBottom: 15 }} />
+            <DateInput onChange={handleCardExpire} format="MM/yyyy" />
+            <button type="submit" className={styles.newCard}>
+              <i className='bx bx-plus'></i>
+              <h1>Adicionar novo cartão</h1>
+            </button>
+          </form>
         </div>
       ) : (
         <>
