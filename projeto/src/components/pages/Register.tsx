@@ -31,9 +31,8 @@ export const Register = () => {
         let data = new FormData(e.target)
         let value: any = Object.fromEntries(data.entries())
         value.id = id
-        value.visa = []
-        value.mastercard = []
-        value.elo = []
+        value.bisa = []
+        value.fastercard = []
 
         for (let index of usuario) {
             if (index.user === data.get("user")) {

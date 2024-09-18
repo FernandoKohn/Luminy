@@ -8,27 +8,16 @@ import { getMonth } from "../functions/functions";
 
 
 
-export const Cards = () => {
+export const Cards = ({setCard}) => {
 
-  const [card, setCard] = useState('')
   const [cardFlag, setCardFlag] = useState()
-  const [cardLimit, setCardLimit] = useState()
   const [cardExpire, setCardExpire] = useState()
   const [toggleCard, setToggleCard] = useState(false)
   const [newCard, setNewCard] = useState(false)
-
-  
-
-  const handleSelect = e => {
-    setCard(e.target.value)
-  }
+  const [cardInfo, setCardInfo] = useState({})
 
   const handleCardFlag = value => {
     return setCardFlag(value)
-  }
-
-  const handleCardLimit = value => {
-    return setCardLimit(value)
   }
 
   const handleCardExpire = value => {
@@ -37,12 +26,16 @@ export const Cards = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    const test = new Date(cardExpire)
-    console.log(test)
-    console.log(cardExpire)
-    console.log(test.getMonth())
-    console.log(test.getFullYear())
+    const date = new Date(cardExpire)
+    const data = new FormData(e.target)
+    var value = Object.fromEntries(data.entries())
+    value.flag = cardFlag
+    value.expireDate = `${getMonth(date.getMonth())}/${date.getFullYear()}`
+    setCardInfo(value)
+    setNewCard(!newCard)
   }
+
+  console.log(cardInfo)
 
   return (
     <div className={styles.main}>
@@ -53,6 +46,7 @@ export const Cards = () => {
           <div className={styles.line}></div>
           <form onSubmit={handleSubmit}>
             <Select
+              defaultValue= "Bisa"
               showSearch
               onChange={handleCardFlag}
               style={{ width: 408, marginTop: 20 }}
@@ -72,8 +66,8 @@ export const Cards = () => {
                 }
               ]}
             />
-            <InputNumber onChange={handleCardLimit} required maxLength={7} name="valor" prefix="R$" placeholder="Limite" style={{ width: 408, marginTop: 30, marginBottom: 15 }} />
-            <DateInput onChange={handleCardExpire} format="MM/yyyy" />
+            <InputNumber required maxLength={7} name="limite" prefix="R$" placeholder="Limite" style={{ width: 408, marginTop: 30, marginBottom: 15 }} />
+            <DateInput onChange={handleCardExpire} required format="MM/yyyy" />
             <button type="submit" className={styles.newCard}>
               <i className='bx bx-plus'></i>
               <h1>Adicionar novo cartão</h1>
@@ -85,10 +79,10 @@ export const Cards = () => {
           <div className={styles.cards}>
             {toggleCard === false ? (
               <>
-                <div className={styles.backCardPlat} onClick={() => { setToggleCard(!toggleCard) }}>
+                <div className={styles.backCardPlat} onClick={() => { setToggleCard(!toggleCard); setCard('fastercard') }}>
                   <header>
                     <p>Platina</p>
-                    <p>R$350.20</p>
+                    <p>R$ 0</p>
                   </header>
                 </div>
                 <div className={styles.frontCard}>
@@ -96,7 +90,7 @@ export const Cards = () => {
                     <p>Ouro</p>
                     <img src={require("../../img/icons/cardShip.png")} alt="credit card ship" />
                   </div>
-                  <p className={styles.value}>R$400.00</p>
+                  <p className={styles.value}>R$ 0</p>
                   <div className={styles.info}>
                     <div className={styles.spireDate}>
                       <p>*713</p>
@@ -108,7 +102,7 @@ export const Cards = () => {
               </>
             ) : (
               <>
-                <div className={styles.backCardPlat} id={styles.backcardOuro} onClick={() => { setToggleCard(!toggleCard) }}>
+                <div className={styles.backCardPlat} id={styles.backcardOuro} onClick={() => { setToggleCard(!toggleCard); setCard('bisa') }}>
                   <header>
                     <p>Ouro</p>
                     <p>R$350.20</p>

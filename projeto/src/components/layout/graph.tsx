@@ -8,7 +8,7 @@ export const Graph = ({ Budget, userData }) => {
   let valuesSum: any = 0
  
 
-  for (var visa of userData.visa) {
+  for (var visa of userData.bisa) {
     if (values[visa.id] == undefined) {
       values[visa.id] = 0
     }
@@ -16,19 +16,11 @@ export const Graph = ({ Budget, userData }) => {
 
   }
 
-  for (var mastercard of userData.mastercard) {
+  for (var mastercard of userData.fastercard) {
     if (values[mastercard.id] == undefined) {
       values[mastercard.id] = 0
     }
     values[mastercard.id] += parseInt(mastercard.valor)
-
-  }
-
-  for (var elo of userData.elo) {
-    if (values[elo.id] == undefined) {
-      values[elo.id] = 0
-    }
-    values[elo.id] += parseInt(elo.valor)
 
   }
 

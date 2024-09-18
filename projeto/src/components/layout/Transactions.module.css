@@ -27,6 +27,12 @@
     cursor: pointer;
 }
 
+#selectedCard {
+    font-size: 15px;
+    padding-top: 5px;  
+    margin-left: -15px;
+}
+
 .transactionForm {
     display: flex;
     flex-direction: column;
