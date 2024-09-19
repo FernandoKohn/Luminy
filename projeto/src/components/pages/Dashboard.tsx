@@ -15,15 +15,15 @@ import { useTransform } from "framer-motion"
 
 export const Dashboard = () => {
 
-  const [card, setCard] = useState("bisa")
+  const [card, setCard] = useState("Bisa")
   const [budget, setBudget] = useState()
 
-  
+
 
   const user: any = useOutletContext()
   const userData = user.user
   const setUser = user.setUser
-  
+
 
   return (
     <div className={styles.main}>
@@ -31,13 +31,12 @@ export const Dashboard = () => {
       <NavbarDashBoard />
       <div className={styles.dashboard}>
         <div className={styles.section1}>
-          <Transactions card={card} userData={userData} setUser={setUser}/>
-          <Graph userData={userData} Budget={budget}/>
-          <Cards setCard={setCard} />
+          <Transactions card={card} userData={userData} setUser={setUser} />
+          <Graph userData={userData} Budget={budget} />
+          <Cards setCard={setCard} userData={userData} />
         </div>
       </div>
     </div>
   )
 }
 
-   

@@ -128,7 +128,7 @@ export const Transactions = ({ userData, card, setUser }) => {
                 </Accordion>
             </div>
             <div className={styles.content}>
-                {(userData && card == "bisa") && (
+                {(userData.bisa && card == "bisa") && (
                     userData.bisa.toReversed().map((compra: any, index: any) => (
                         <div key={index} className={styles.transactionsCard}>
                             <div className={styles.leftDiv}>

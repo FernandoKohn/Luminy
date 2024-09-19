@@ -1,85 +1,76 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styles from "./Cards.module.css"
-import { Select } from "antd";
-import { InputNumber } from "antd";
-import { DateInput } from 'rsuite';
-import 'rsuite/DateInput/styles/index.css';
-import { getMonth } from "../functions/functions";
+import { Select } from "antd"
+import { InputNumber } from "antd"
+import { DateInput } from 'rsuite'
+import 'rsuite/DateInput/styles/index.css'
+import { getMonth } from "../functions/functions"
+import axios from "axios"
 
 
 
-export const Cards = ({setCard}) => {
+export const Cards = ({ setCard, userData }) => {
 
   const [cardFlag, setCardFlag] = useState()
-  const [cardExpire, setCardExpire] = useState()
+  const [cardExpire, setCardExpire] = useState<any>()
+  const [cardLimit, setCardLimit] = useState<number>()
   const [toggleCard, setToggleCard] = useState(false)
   const [newCard, setNewCard] = useState(false)
   const [cardInfo, setCardInfo] = useState({})
+  const [bisaSum, setBisaSum] = useState<number>()
+  const [faserSum, setFasterSum] = useState<number>()
+  const [mutableUser, setMutableUser] = useState(userData)
+  const [refresh, setRefresh] = useState(false)
+
+  var sumBisa = 0
+  var sumFaster = 0
+
+  useEffect(()=>{}, [refresh])
+
+  const jsonServer = axios.create({
+    baseURL: 'https://luminy.glitch.me/user'
+  })
 
   const handleCardFlag = value => {
+    console.log(value)
     return setCardFlag(value)
   }
 
   const handleCardExpire = value => {
-    return setCardExpire(value)
+    const date = new Date(value)
+    return setCardExpire(`${getMonth(date.getMonth())}/${date.getFullYear()}`)
   }
+
+  const handleCardLimit = value => {
+    return setCardLimit(value)
+  }
+
 
   const handleSubmit = e => {
     e.preventDefault()
-    const date = new Date(cardExpire)
-    const data = new FormData(e.target)
-    var value = Object.fromEntries(data.entries())
-    value.flag = cardFlag
-    value.expireDate = `${getMonth(date.getMonth())}/${date.getFullYear()}`
-    setCardInfo(value)
+
+    if (cardFlag == "bisa") {
+      mutableUser.bisa = []
+      mutableUser.bisaLimit = cardLimit
+      mutableUser.bisaExpire = cardExpire 
+      setCard("bisa")
+    } else if (cardFlag == "fastercard") {
+      mutableUser.fastercard = []
+      mutableUser.fastercardLimit = cardLimit
+      mutableUser.fastercardExpire = cardExpire
+      setCard("fastercard")
+    }
+
+    jsonServer.patch(`/${userData.id}`, mutableUser).then((resp) => {setMutableUser(resp.data); setRefresh(!refresh) })
     setNewCard(!newCard)
   }
 
-  console.log(cardInfo)
-
   return (
     <div className={styles.main}>
-      {newCard === true ? (
-        <div className={styles.addCard}>
-          <h1>Adicione um cartão</h1>
-          <i className='bx bx-arrow-back' id={styles.arrowBack} onClick={() => setNewCard(!newCard)}></i>
-          <div className={styles.line}></div>
-          <form onSubmit={handleSubmit}>
-            <Select
-              defaultValue= "Bisa"
-              showSearch
-              onChange={handleCardFlag}
-              style={{ width: 408, marginTop: 20 }}
-              placeholder="Bandeira do cartão"
-              optionFilterProp="label"
-              filterSort={(optionA, optionB) =>
-                (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-              }
-              options={[
-                {
-                  value: 'bisa',
-                  label: 'Bisa',
-                },
-                {
-                  value: 'fastercard',
-                  label: 'Faster Card',
-                }
-              ]}
-            />
-            <InputNumber required maxLength={7} name="limite" prefix="R$" placeholder="Limite" style={{ width: 408, marginTop: 30, marginBottom: 15 }} />
-            <DateInput onChange={handleCardExpire} required format="MM/yyyy" />
-            <button type="submit" className={styles.newCard}>
-              <i className='bx bx-plus'></i>
-              <h1>Adicionar novo cartão</h1>
-            </button>
-          </form>
-        </div>
-      ) : (
-        <>
-          <div className={styles.cards}>
-            {toggleCard === false ? (
+        <div className={styles.cards}>
+          {toggleCard === false ? (
               <>
-                <div className={styles.backCardPlat} onClick={() => { setToggleCard(!toggleCard); setCard('fastercard') }}>
+                <div className={styles.backCardPlat} onClick={() => { setToggleCard(!toggleCard); setCard('Fastercard') }}>
                   <header>
                     <p>Platina</p>
                     <p>R$ 0</p>
@@ -141,12 +132,6 @@ export const Cards = ({setCard}) => {
               </div>
             </div>
           </div>
-          <div className={styles.newCard} onClick={() => setNewCard(!newCard)}>
-            <i className='bx bx-plus'></i>
-            <h1>Adicionar novo cartão</h1>
-          </div>
-        </>
-      )}
     </div>
   )
 }
