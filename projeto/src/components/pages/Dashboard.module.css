@@ -16,7 +16,6 @@ p {
 
 .dashboard {
     display: flex;
-    flex-direction: column;
     width: 100vw;
     gap: 20px;
     padding-top: 80px;
@@ -29,6 +28,10 @@ p {
     height: 820px;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+.section2 {
+    width: 500px;
 }
 
 

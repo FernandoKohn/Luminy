@@ -2,7 +2,7 @@ import styles from './Graph.module.css'
 import ReactEcharts from "echarts-for-react";
 import axios from "axios";
 
-export const Graph = ({ Budget, userData }) => {
+export const Graph = ({ userData }) => {
 
   let values: any = {}
   let valuesSum: any = 0
@@ -23,11 +23,7 @@ export const Graph = ({ Budget, userData }) => {
     values[mastercard.id] += parseInt(mastercard.valor)
 
   }
-
-  for (const [key, value] of Object.entries(values)) {
-    valuesSum += value
-  }
-
+  
 
   const option = {
 

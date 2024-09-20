@@ -1,0 +1,43 @@
+.main {
+    width: 790px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    padding: 20px;
+}
+
+.main h1 {
+    font-size: 1.2em;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.headerStart {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.headerStart p {
+    font-size: 0.8em;
+    color: rgba(58, 58, 58, 0.384);
+}
+
+.headerButton {
+    padding: 10px;
+    background-color: rgba(204, 204, 204, 0.384);
+    border-radius: 20px;
+    font-size: 0.8em;
+    color: rgba(58, 58, 58, 0.384);
+}
+
+.headerButton:hover {
+    cursor: pointer;
+}

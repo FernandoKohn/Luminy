@@ -53,7 +53,7 @@
 
 .frontCard {
     position: absolute;
-    bottom: 128px;
+    bottom: 110px;
     width: 408px;
     height: 210px;
     border-radius: 15px;
@@ -69,7 +69,7 @@
     position: absolute;
     background-color: #E6E6DC;
     border-radius: 15px;
-    top: 8px;
+    top: 25px;
     left: 50px;
 }
 
@@ -137,21 +137,23 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 85px;
-    right: 35px;
+    bottom: 50px;
+    right: 20px;
     gap: 10px;
 }
 
 .cardInfo {
-    width: 380px;
+    width: 400px;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.274);
 }
 
 .cardInfo div {
     display: flex;
     font-size: 0.8em;
     gap: 5px;
+    padding: 10px;
 }
 
 .newCard {

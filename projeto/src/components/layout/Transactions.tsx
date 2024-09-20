@@ -12,7 +12,9 @@ import { getDay } from "../functions/functions";
 export const Transactions = ({ userData, card, setUser }) => {
 
     const [selectValue, setSelectValue] = useState({})
+    const [selectDay, setSelectDay] = useState()
     const [mutableUser, setmutableUser] = useState(userData)
+
     
 
     const jsonServer = axios.create({
@@ -23,15 +25,18 @@ export const Transactions = ({ userData, card, setUser }) => {
         setSelectValue(value)
     }
 
+    const handleSelectDay = (value: any) => {
+        setSelectDay(value)
+    }
+
 
     const handleChange = (event: any) => {
         event.preventDefault()
         let data = new FormData(event.target)
         let value: any = Object.fromEntries(data.entries())
-        let dia = new Date().getDay()
         var hora = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         value.id = selectValue
-        value.dia = getDay(dia)
+        value.dia = selectDay
         value.hora = hora
 
         if (card == "bisa") {
@@ -42,9 +47,9 @@ export const Transactions = ({ userData, card, setUser }) => {
         }
 
         if (mutableUser.bisa.length > 6) {
-            var lastBisa = mutableUser.bisa.shift()
+            mutableUser.bisa.shift()
         } else if (mutableUser.fastercard.lengt > 6) {
-            var lastFaster = mutableUser.fastercard.shift()
+            mutableUser.fastercard.shift()
         }
 
         jsonServer.patch(`/${userData.id}`, mutableUser).then((resp) => { setUser(resp.data) })
@@ -122,6 +127,53 @@ export const Transactions = ({ userData, card, setUser }) => {
                                 ]}
                             />
                             <InputNumber required maxLength={7} name="valor" prefix="R$" placeholder="Valor" style={{ width: '200px' }} />
+                            <Select
+                                showSearch
+                                onChange={handleSelectDay}
+                                style={{ width: 200 }}
+                                placeholder="No que foi gasto?"
+                                optionFilterProp="label"
+                                filterSort={(optionA, optionB) =>
+                                    (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
+                                }
+                                options={[
+                                    {
+                                        value: 'Segunda',
+                                        label: 'Segunda',
+
+                                    },
+                                    {
+                                        value: 'Terça',
+                                        label: 'Terça',
+
+                                    },
+                                    {
+                                        value: 'Quarta',
+                                        label: 'Quarta',
+
+                                    },
+                                    {
+                                        value: 'Quinta',
+                                        label: 'Quinta',
+
+                                    },
+                                    {
+                                        value: 'Sexta',
+                                        label: 'Sexta',
+
+                                    },
+                                    {
+                                        value: 'Sabado',
+                                        label: 'Sabado',
+
+                                    },
+                                    {
+                                        value: 'Domingo',
+                                        label: 'Domingo',
+
+                                    }
+                                ]}
+                            />
                             <button type="submit">Cadastrar</button>
                         </form>
                     </AccordionDetails>

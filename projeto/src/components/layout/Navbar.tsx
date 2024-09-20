@@ -11,9 +11,6 @@ export const Navbar = ({user, setUser}: any) => {
         setUser(null)
     }
 
-    console.log(user)
-    
-
     return (
         <div className={styles.main}>
             <div className={styles.logo}>

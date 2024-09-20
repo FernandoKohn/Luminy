@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { NavbarDashBoard } from "../layout/NavbarDashBoard"
 import styles from "./Dashboard.module.css"
 import { useOutletContext } from "react-router-dom"
@@ -6,7 +6,8 @@ import { DashboardHeader } from "../layout/DashboardHeader"
 import { Transactions } from "../layout/Transactions"
 import { Graph } from "../layout/Graph"
 import { Cards } from "../layout/Cards"
-import { useTransform } from "framer-motion"
+import { Budget } from "../layout/Budget"
+import { QuickTransfer } from "../layout/QuickTransfer"
 
 
 
@@ -16,7 +17,6 @@ import { useTransform } from "framer-motion"
 export const Dashboard = () => {
 
   const [card, setCard] = useState("Bisa")
-  const [budget, setBudget] = useState()
 
 
 
@@ -32,8 +32,12 @@ export const Dashboard = () => {
       <div className={styles.dashboard}>
         <div className={styles.section1}>
           <Transactions card={card} userData={userData} setUser={setUser} />
-          <Graph userData={userData} Budget={budget} />
+          <Graph userData={userData} />
           <Cards setCard={setCard} userData={userData} />
+          <Budget userData={userData} card={card} />
+        </div>
+        <div className={styles.section2}>
+          <QuickTransfer />
         </div>
       </div>
     </div>
