@@ -6,3 +6,59 @@
     border: 1px solid rgba(0, 0, 0, 0.178);
     padding: 20px;
 }
+
+.profilePic {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.profilePic img {
+    width: 15%;
+    padding: 3px;
+}
+
+.profilePic img:hover {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+#plus {
+    font-size: 2em;
+    border-radius: 50%;
+    border: 1px dashed black;
+    padding: 15px;
+}
+
+.button {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button2 {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: black;
+    color: rgb(255, 0, 0);
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}

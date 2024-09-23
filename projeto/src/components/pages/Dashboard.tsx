@@ -8,6 +8,7 @@ import { Graph } from "../layout/Graph"
 import { Cards } from "../layout/Cards"
 import { Budget } from "../layout/Budget"
 import { QuickTransfer } from "../layout/QuickTransfer"
+import { LearnMore } from "../layout/LearnMore"
 
 
 
@@ -16,7 +17,7 @@ import { QuickTransfer } from "../layout/QuickTransfer"
 
 export const Dashboard = () => {
 
-  const [card, setCard] = useState("Bisa")
+  const [card, setCard] = useState("bisa")
 
 
 
@@ -38,6 +39,7 @@ export const Dashboard = () => {
         </div>
         <div className={styles.section2}>
           <QuickTransfer />
+          <LearnMore />
         </div>
       </div>
     </div>
