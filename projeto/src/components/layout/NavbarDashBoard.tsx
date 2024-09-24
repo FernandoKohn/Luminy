@@ -1,5 +1,5 @@
 import styles from "./NavbarDashBoard.module.css"
-import logo from "../../img/Logo1.png"
+import logo from "../../img/icons/Logo.png"
 import { Link, useNavigate, useOutletContext, useParams } from "react-router-dom"
 import Tooltip from '@mui/material/Tooltip';
 

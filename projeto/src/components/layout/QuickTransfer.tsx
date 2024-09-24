@@ -10,7 +10,7 @@ export const QuickTransfer = () => {
     setChangeButton(true)
     setInterval(() => {
       setChangeButton(false)
-    }, 3000)
+    }, 5000)
   }
 
   return (
@@ -30,8 +30,8 @@ export const QuickTransfer = () => {
           <p>Transferir</p>
         </div>
       ) : (
-        <div className={styles.button2} onClick={handleChangeButton}>
-          <p>Transferir</p>
+        <div className={styles.button2}>
+          <i className='bx bx-check'></i>
         </div>
       )}
     </div>

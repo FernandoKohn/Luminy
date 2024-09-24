@@ -1,6 +1,9 @@
 .main {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
     width: 70px;
     height: 920px;
     background-color: #000000;
@@ -47,4 +50,9 @@ footer {
 
 footer i:hover {
     cursor: pointer;
+}
+
+.luminyLogo {
+    width: 50px;
+    border-radius: 50%;
 }

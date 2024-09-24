@@ -5,12 +5,14 @@
   font-weight: bolder;
 }
 
+
 a{
   text-decoration: none;
   color: black;
 }
 
 body {
+  padding: 15px;
 
   font-family: Nimbus;
   position: relative;
