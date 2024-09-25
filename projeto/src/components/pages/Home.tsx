@@ -27,14 +27,11 @@ export const Home = () => {
                 <section className={src ? styles.section1_off : styles.section1_on}>
                     {src === false && (
                         <>
-                            <div className={styles.ilumine}>
-                                <h1>ILU</h1>
-                                <h1>MINE</h1>
-                            </div>
-                            <h1 className={styles.suaGestao}>sua gestão!</h1>
+                            <div className={styles.lightSource}></div>
                         </>
                     )}
                     <img className={styles.lightbulb} src={src ? light_off : light_on} alt="Light Bulb" onClick={() => setSrc(!src)} />
+                    
                 </section>
                 <section className={styles.section2}>
                     <h1>Experimente Luminy hoje mesmo</h1>

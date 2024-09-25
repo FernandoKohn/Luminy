@@ -11,34 +11,22 @@ a{
   color: black;
 }
 
+@font-face {
+  font-family: TaticRound;
+  src: url(./fonts/TacticRound-Ult.ttf);
+}
+
 body {
   padding: 15px;
-
-  font-family: Nimbus;
+  font-family: TaticRound;
   position: relative;
 }
 
-@font-face {
-  font-family: Nimbus;
-  src: url(./fonts/NimbusSanL-Reg.otf);
-}
 
-@font-face {
-  font-family: Nimbus_bold;
-  src: url(./fonts/NimbusSanL-Bol.otf);
-}
 
-button {
-  font-family: Nimbus;
-}
 
-h1 {
-  font-size: 130px;
-}
 
-p {
-  font-size: 70px;
-}
+
 
 
 

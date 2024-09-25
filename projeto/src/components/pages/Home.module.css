@@ -10,7 +10,7 @@
     height: 850px;
     position: relative;
     border-bottom: 5px solid black;
-    background-color: #E4DDCF;
+    background-color: #EDDDD6;
 }
 
 .section1_on {
@@ -27,27 +27,17 @@
 
 .lightbulb {
     width: 300px;
+    z-index: 1;
 }
 
-.ilumine {
-    display: flex;
-    justify-content: space-between;
-    width: 1150px;
+.lightSource {
     position: absolute;
-    top: 90px;
-    left: 410px;
-    pointer-events: none;
-}
-
-.ilumine h1 {
-    font-size: 300px;
-}
-
-.suaGestao {
-    font-size: 300px;
-    position: absolute;
-    top: 440px;
-    pointer-events: none;
+    width: 2px;
+    height: 2px;
+    background-color: #B6D600;
+    border-radius: 100%;
+    box-shadow: 0px 0px 250px 200px #d9ff00;
+    
 }
 
 .section2 {
