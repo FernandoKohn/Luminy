@@ -5,11 +5,12 @@ import light_on from "../../img/12236.svg"
 import placeholder from "../../img/placeholder.jpg"
 import { Link } from "react-router-dom"
 import axios from "axios";
+import Marquee from "react-fast-marquee";
 
 
 
 export const Home = () => {
-    
+
     const [src, setSrc] = useState<boolean>(true)
 
     const jsonServer = axios.create({
@@ -24,14 +25,14 @@ export const Home = () => {
     return (
         <div className={styles.main}>
             <div className={styles.home}>
-                <section className={src ? styles.section1_off : styles.section1_on}>
+                <section className={styles.section1}>
                     {src === false && (
                         <>
+                            <h1 className={styles.title}>ILUMINE <span className={styles.titleWhite}>SUAS FINANÇAS</span></h1>
                             <div className={styles.lightSource}></div>
                         </>
                     )}
                     <img className={styles.lightbulb} src={src ? light_off : light_on} alt="Light Bulb" onClick={() => setSrc(!src)} />
-                    
                 </section>
                 <section className={styles.section2}>
                     <h1>Experimente Luminy hoje mesmo</h1>
