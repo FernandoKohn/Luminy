@@ -13,32 +13,13 @@ export const Navbar = ({ user, setUser }: any) => {
 
     return (
         <div className={styles.main}>
-            <div className={styles.content}>
-                <div className={styles.logoDiv}>
-                    <Link to="/" className={styles.linkDiv}>
-                        <img src={Logo} alt="Logo" />
-                    </Link>
-                    <div className={styles.aboutDashboard}>
-                        <Link to="/Sobre" className={styles.linkDiv}>
-                            <h1>Sobre</h1>
-                        </Link>
-                        <Link to="/" className={styles.linkDiv}>
-                            <h1>Home</h1>
-                        </Link>
-                        {user && (
-                            <Link to={`/Dashboard/${user.user}`} className={styles.linkDiv}>
-                                <h1>Dashboard</h1>
-                            </Link>
-                        )}
-                    </div>
-                </div>
-                <div className={styles.userLogin}>
-                    <Link to="/Login" className={styles.toRegister}>
-                        <h1>Registrar</h1>
-                    </Link>
-                    <Link to="/Registrar" className={styles.toLog}>
-                        <h1>Logar</h1>
-                    </Link>
+            <div className={styles.blockOne}>
+                <h1>LUMINY</h1>
+            </div>
+            <div className={styles.blockTwo}>
+                <h1>O caminho para seu conforto financeiro.</h1>
+                <div className={styles.button}>
+                    <h1>LOGIN</h1>
                 </div>
             </div>
         </div>

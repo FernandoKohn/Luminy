@@ -11,7 +11,6 @@ import Marquee from "react-fast-marquee";
 
 export const Home = () => {
 
-    const [src, setSrc] = useState<boolean>(true)
 
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
@@ -26,31 +25,16 @@ export const Home = () => {
         <div className={styles.main}>
             <div className={styles.home}>
                 <section className={styles.section1}>
-                    {src === false && (
-                        <>
-                            <h1 className={styles.title}>ILUMINE <span className={styles.titleWhite}>SUAS FINANÇAS</span></h1>
-                            <div className={styles.lightSource}></div>
-                        </>
-                    )}
-                    <img className={styles.lightbulb} src={src ? light_off : light_on} alt="Light Bulb" onClick={() => setSrc(!src)} />
+                    <h1>ILUMINY</h1>
+                    <h1>SUAS FINANCAS</h1>
+                    <div className={styles.ball}></div>
                 </section>
                 <section className={styles.section2}>
-                    <h1>Experimente Luminy hoje mesmo</h1>
-                    <h1>e liberte sua empresa do caos dos recados!</h1>
-                    <p>Com Luminy, sua empresa ganha eficiência e organização, centralizando todos os recados em um único lugar acessível.</p>
-                    <div className={styles.bannerContainer}>
-                        <div className={styles.banner}>
-                            <img src={placeholder} alt="banner" />
-                            <p>Descrição</p>
-                        </div>
-                        <div className={styles.banner}>
-                            <img src={placeholder} alt="banner" />
-                            <p>Descrição</p>
-                        </div>
-                        <div className={styles.banner}>
-                            <img src={placeholder} alt="banner" />
-                            <p>Descrição</p>
-                        </div>
+                    <div className={styles.left}>
+                        
+                    </div>
+                    <div className={styles.right}>
+
                     </div>
                 </section>
                 <section className={styles.section3}>

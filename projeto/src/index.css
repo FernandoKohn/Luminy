@@ -12,13 +12,12 @@ a{
 }
 
 @font-face {
-  font-family: TaticRound;
-  src: url(./fonts/TacticRound-Ult.ttf);
+  font-family: Roc;
+  src: url(./fonts/Fontspring-DEMO-rocgroteskcond-bold.otf);
 }
 
 body {
-  padding: 15px;
-  font-family: TaticRound;
+  font-family: Roc;
   position: relative;
 }
 

@@ -8,85 +8,50 @@
 
 .main {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     height: 120px;
-    background-color: #e7ebd4;
-    border-radius: 10px 10px 0px 0px;
+    background-color: #152522;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-.content {
-    background-color: white;
-    width: 70%;
+.blockOne {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    width: 49.5%;
+    height: 70px;
+    background-color: #E5EDD9;
+    border-radius: 0px 0px 5px 5px;
+    color: #152522;
+}
+
+.blockTwo {
+    width: 49.5%;
     height: 70px;
     display: flex;
-    border-radius: 15px;
-    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid #F6A8FE;
+    border-top: #152522;
+    border-radius: 0 0 5px 5px ;
+    color: #E5EDD9;
     justify-content: space-between;
+    padding: 20px;
 }
 
-.logoDiv {
-    display: flex;
-    width: 500px;
-    align-items: center;
-    padding-left: 20px;
-}
-
-.logoDiv img {
-    width: 60px;
-    margin-right: 170px;
-} 
-
-.aboutDashboard {
-    display: flex;
-    gap: 50px;
-}
-
-.linkDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.userLogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-    gap: 25px;
-}
-
-.toLog {
-    display: flex;
-    width: 150px;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    background-color: #C6EF4E;
-    border-radius: 5px;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px black;
-}
-
-.toLog h1 {
-    color: black;
+.blockTwo h1 {
     font-size: 1.2em;
 }
 
-.toRegister {
-    display: flex;
-    width: 150px;
+.blockTwo .button {
+    width: 110px;
     height: 50px;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
     border-radius: 5px;
-    border: 1px solid black;
-    box-shadow: 2px 2px 2px black;
-}
-
-.toRegister h1 {
-    color: black;
-    font-size: 1.2em;
+    background-color: #F6A8FE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #152522;
 }
