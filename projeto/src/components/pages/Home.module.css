@@ -18,7 +18,7 @@
 
 .ball {
     position: absolute;
-    top: 150px;
+    top: 180px;
     width: 700px;
     height: 260px;
     border-radius: 50%;
@@ -39,16 +39,39 @@
 
 .left {
     width: 49.5%;
-    height: 700px;
+    height: 800px;
     background-color: #2B3935;
     border-radius: 5px;
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
 }
 
 .right {
     width: 49.5%;
-    height: 700px;
+    height: 800px;
     background-color: #2B3935;
     border-radius: 5px;
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+}
+
+.imgContainer {
+    width: 700px;
+    height: 600px;
+    background-color: beige;
+    border-radius: 5px;
+    background: url('../../img/Print1.svg');
+}
+
+
+.imgContainer2 {
+    width: 700px;
+    height: 600px;
+    background-color: beige;
+    border-radius: 5px;
+    background: url('../../img/Print2.svg');
 }
 
 .section3 {

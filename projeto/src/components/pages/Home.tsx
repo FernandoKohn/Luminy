@@ -31,10 +31,14 @@ export const Home = () => {
                 </section>
                 <section className={styles.section2}>
                     <div className={styles.left}>
-                        
+                        <div className={styles.imgContainer}>
+
+                        </div>
                     </div>
                     <div className={styles.right}>
+                        <div className={styles.imgContainer2}>
 
+                        </div>
                     </div>
                 </section>
                 <section className={styles.section3}>
