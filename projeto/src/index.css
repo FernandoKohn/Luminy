@@ -12,15 +12,26 @@ a{
 }
 
 @font-face {
-  font-family: Roc;
-  src: url(./fonts/Fontspring-DEMO-rocgroteskcond-bold.otf);
+  font-family: Antebas M;
+  src: url(fonts/antebas-medium-fsp.otf);
+}
+
+@font-face {
+  font-family: Omny;
+  src: url(fonts/FontsFree-Net-BR-Omny-Medium.ttf);
 }
 
 body {
-  font-family: Roc;
   position: relative;
 }
 
+body h1 {
+  font-family: Antebas M;
+}
+
+body p {
+  font-family: Omny;
+}
 
 
 
