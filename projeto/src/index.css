@@ -12,24 +12,40 @@ a{
 }
 
 @font-face {
-  font-family: Antebas M;
-  src: url(fonts/antebas-medium-fsp.otf);
+  font-family: OmnyBold;
+  src: url(fonts/BROmny-Bold-BF65557eb88a83f.otf);
 }
 
 @font-face {
   font-family: Omny;
-  src: url(fonts/FontsFree-Net-BR-Omny-Medium.ttf);
+  src: url(fonts/BROmny-Light-BF65557eb87f5b9.otf);
+}
+
+@font-face {
+  font-family: OmnyItalic;
+  src: url(fonts/BROmny-BoldItalic-BF65557eb89deb2.otf);
+}
+
+@font-face {
+  font-family: Stapel;
+  src: url(fonts/stapel-bold.otf);
+}
+
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
 }
 
 body {
   position: relative;
+  scroll-snap-type: y proximity;
 }
 
-body h1 {
-  font-family: Antebas M;
+section {
+  scroll-snap-align: end;
 }
 
-body p {
+body {
   font-family: Omny;
 }
 
