@@ -1,8 +1,6 @@
-/* .main {
-    background-color: #EAECDF;
-} */
 
-.section1 {
+
+.section1, .section1Wide {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,13 +14,16 @@
     line-height: 170px;
 }
 
-.section1 h1 {
+.section1 h1, .section1Wide h1 {
     font-family: Stapel;
+    padding-left: 40px;
 }
 
 .ball {
     position: absolute;
-    left: 570px;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 700px;
     height: 220px;
     border-radius: 100%;
@@ -46,15 +47,31 @@
     width: 50%;
     height: 100%;
     border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pupil {
-    width: 55px;
-    height: 55px;
-    background-color: #152522;
-    border-radius: 50px;
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+    height: 50px;
+    width: 70px;
+    background: #BDDE86;
+    border-radius: 100px;
 }
 
+.pupil::after {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #152522;
+    border-radius: 50%;
+    content: " ";
+    margin: -15px;
+    animation: eyes 2s forwards;
+}
 
 .section2 {
     display: flex;
@@ -137,7 +154,8 @@
 .info {
     width: 900px;
     height: 200px;
-    background-color: #E0FEAC;;
+    background-color: #E0FEAC;
+    ;
     border-radius: 10px;
     padding: 20px 20px 20px 30px;
     display: flex;
@@ -278,7 +296,7 @@
     color: #F8A9FF;
     line-height: 90px;
     padding-top: 130px;
-    font-family: OmnyBold   ;
+    font-family: OmnyBold;
 }
 
 .entrar {
@@ -337,10 +355,202 @@
 
 
 @keyframes rotate {
-    from{
+    from {
         -webkit-transform: rotate(0deg);
     }
-    to{
+
+    to {
         -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes eyes {
+    0% {
+        width: 40px;
+        height: 40px;
+    }
+
+    100%{
+        width: 60px;
+        height: 60px;
+    }
+    
+}
+
+@media (width <= 1920px) {
+    .section1Wide {
+        display: flex;
+    }
+
+    .section1 {
+        display: none;
+    }
+}
+
+
+@media (width <= 1650px) {
+    .section1Wide {
+        font-size: 4em;
+        line-height: 150px;
+    }
+
+    .ball {
+        width: 600px;
+        height: 200px;
+    }
+}
+
+
+@media (width <= 1380px) {
+    .section1Wide {
+        font-size: 3em;
+        line-height: 120px;
+    }
+
+    .ball {
+        width: 500px;
+        height: 150px;
+    }
+}
+
+
+@media (width <= 1052px) {
+
+    .section1Wide {
+        display: none;
+    }
+
+    .section1 {
+        display: flex;
+        font-size: 4em;
+        text-align: center;
+        line-height: 130px;
+        height: 700px;
+    }
+
+    .ball {
+        top: 150px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 450px;
+        height: 310px;
+    }
+
+    .eyes {
+        top: -15px;
+    }
+
+    .section2 {
+        flex-direction: column;
+        justify-content: start;
+        padding: 20px;
+        height: auto;
+        gap: 100px;
+    }
+
+    .left, .right {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .warning {
+        width: 101%;
+        left: -5px;
+        top: -70px;
+        font-size: 0.4em;    
+    }
+
+    .imgContainer1, .imgContainer2 {
+        width: 90%;
+    }
+
+    .info {
+        width: 90%;
+        font-size: 0.5em;
+    }
+
+    .info p {
+        width: 90%;
+        font-size: 2em;
+    }
+   
+    .section3Content {
+        padding: 0;
+        flex-direction: column;
+        padding-top: 110px;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .rightBlock {
+        width: 90%;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+    }
+
+    .description {
+        font-size: 1.5em;
+    }
+
+    .badge {
+        width: 300px;
+    }
+
+    .section4 {
+        padding: 0;
+        width: 100%;
+    }
+
+    .leftText {
+        font-size: 3em;
+        line-height: 50px;
+        padding-top: 170px;
+    }
+
+    .entrar {
+        width: 250px;
+        position: absolute;
+        right: 0;
+        font-size: 0.7em;
+    }
+
+    #footer {
+        height: 50px;
+        font-size: 1em;
+    }
+
+}
+
+@media (width <= 716px) {
+    .section1 {
+        font-size: 3em;
+        line-height: 90px;
+        height: 650px;
+    }
+
+    .ball {
+        width: 450px;
+        height: 250px;
+        top: 180px;
+    }
+}
+
+@media (width <= 550px) {
+    .section1 {
+        font-size: 2em;
+        line-height: 65px;
+    }
+
+    .ball {
+        width: 80%;
+        height: 180px;
+        top: 230px;
+    }
+
+    .eyes {
+        top: 50px;
     }
 }

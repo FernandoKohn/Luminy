@@ -17,22 +17,45 @@ export const Home = () => {
         jsonServer.get("").catch(err => console.log(err))
     }, [])
 
-    console.log(document.getElementById(styles.eyes))
+    const eyeball = (event: any) => {
+        let eyes:any = document.querySelectorAll("#pupil")
+        eyes.forEach(eye => {
+            let x = eye.getBoundingClientRect().left + eye.clientWidth / 2
+            let y = eye.getBoundingClientRect().top + eye.clientHeight / 2
+            let radian = Math.atan2(event.pageX - x, event.pageY - y)
+            let rotate = radian * (180 / Math.PI) * -1 + 245
+            eye.style.transform = `rotate(${rotate}deg)`
+        })
+    }
+
 
 
     return (
-        <div className={styles.main}>
+        <div className={styles.main} onMouseMove={eyeball}>
             <div className={styles.home}>
-                <section className={styles.section1}>
+            <section className={styles.section1Wide}>
                     <h1>ILUMINY</h1>
                     <h1>SUA ECONOMIA</h1>
                     <div className={styles.ball}></div>
                     <div className={styles.eyes}>
                         <div className={styles.eyeBall}>
-                            <div className={styles.pupil}></div>
+                            <div id="pupil" className={styles.pupil}></div>
                         </div>
                         <div className={styles.eyeBall}>
-                            <div className={styles.pupil}></div>
+                            <div id="pupil" className={styles.pupil}></div>
+                        </div>
+                    </div>
+                </section>
+                <section className={styles.section1}>
+                    <h1>ILUMINY</h1>
+                    <h1>SUA<br></br>ECONO<br></br>MIA</h1>
+                    <div className={styles.ball}></div>
+                    <div className={styles.eyes}>
+                        <div className={styles.eyeBall}>
+                            <div id="pupil" className={styles.pupil}></div>
+                        </div>
+                        <div className={styles.eyeBall}>
+                            <div id="pupil" className={styles.pupil}></div>
                         </div>
                     </div>
                 </section>

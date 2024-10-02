@@ -17,7 +17,7 @@ export const Navbar = ({ user, setUser }: any) => {
                 <h1>LUMINY</h1>
             </div>
             <div className={styles.blockTwo}>
-                <h1>O caminho para seu conforto financeiro.</h1>
+                <h1 className={styles.blockTwoTitle}>O caminho para seu conforto financeiro.</h1>
                 <Link to={"/Login"} className={styles.button}>
                     <h1>LOGIN</h1>
                 </Link>
