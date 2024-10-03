@@ -78,27 +78,13 @@
     height: 900px;
     padding-top: 40px;
     background-color: #152522;
-    padding: 0px 20px 0 20px;
+    padding: 0px 20px;
     justify-content: space-between;
     position: relative;
 }
 
 
-.left {
-    width: 920px;
-    height: 850px;
-    background-color: #2B3935;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    padding-top: 105px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    gap: 20px;
-}
-
-.right {
+.left, .right {
     width: 920px;
     height: 850px;
     background-color: #2B3935;
@@ -233,7 +219,7 @@
     height: auto;
     display: flex;
     align-items: center;
-    padding-left: 350px;
+    justify-content: center;
     padding-top: 150px;
     gap: 200px;
 }
@@ -387,8 +373,37 @@
     }
 }
 
+@media (width <= 1800px) {
+    .section1Wide {
+        display: none;
+    }
 
-@media (width <= 1650px) {
+    .section1 {
+        display: flex;
+    }
+
+    .section2 {
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .left, .right {
+        width: 800px;
+    }
+
+    .info {
+        width: 90%;
+        font-size: 0.9em;
+    }
+
+    .info p {
+        width: 90%;
+    }
+
+}
+
+
+@media (width <= 1690px) {
     .section1Wide {
         font-size: 4em;
         line-height: 150px;
@@ -398,10 +413,14 @@
         width: 600px;
         height: 200px;
     }
+
+    .section3Content {
+        gap: 150px;
+    }
 }
 
 
-@media (width <= 1380px) {
+@media (width <= 1390px) {
     .section1Wide {
         font-size: 3em;
         line-height: 120px;
@@ -411,10 +430,14 @@
         width: 500px;
         height: 150px;
     }
+
+    .info {
+        font-size: 0.8em;
+    }
 }
 
 
-@media (width <= 1052px) {
+@media (width <= 1280px) {
 
     .section1Wide {
         display: none;
@@ -467,7 +490,7 @@
 
     .info {
         width: 90%;
-        font-size: 0.5em;
+        font-size: 0.8em;
     }
 
     .info p {
@@ -524,7 +547,7 @@
 
 }
 
-@media (width <= 716px) {
+@media (width <= 760px) {
     .section1 {
         font-size: 3em;
         line-height: 90px;
@@ -538,7 +561,19 @@
     }
 }
 
-@media (width <= 550px) {
+@media (width <= 700px) {
+    .info {
+        font-size: 0.6em;
+    }
+}
+
+@media (width <= 540px) {
+    .info {
+        font-size: 0.5em;
+    }
+}
+
+@media (width <= 590px) {
     .section1 {
         font-size: 2em;
         line-height: 65px;

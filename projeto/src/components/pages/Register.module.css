@@ -1,70 +1,107 @@
 .main {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #152522;
+    color: #E0FEAC;
+    position: relative;
 }
 
-.formContainer {
+.message {
+    position: absolute;
+    top: 50px;
+}
+
+.tooltip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 60px;
+    left: 30px;
+    border-radius: 100%;
+    border: 3px solid #E0FEAC;
+    padding: 20x;
+    font-size: 0.7em;
+    padding-top: 2px;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+.underline {
+    border-bottom: 5px solid #F8A9FF;
+    
+}   
+
+.main form {
+    width:30em;
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    width: 30%;
-    height: 750px;
-    font-size: 3em;
-    border: 10px solid black;
-    border-radius: 10px;
+    gap: 20px;
 }
 
-.formContainer h1 {
-    font-size: 1.5em;
+.formContainer button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: 60px;
+    background-color: #F8A9FF;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
 }
 
-.formContainer p {
-    font-size: 0.8em;
-    margin-bottom: 40px;
+.line {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 30em;
+    height: 2px;
+    border-radius: 5px;
+    background-color: #E0FEAC;
 }
 
+.lowerDiv {
+    width: 42.9em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+    gap: 15px;
+}
 
-form input {
-    width: 100%;
+.loginButton {
+    font-size: 2em;
+    width: 200px;
     height: 50px;
-    border-radius: 10px;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 25px;
-}
-
-#forgotPassword {
-    font-size: 0.5em;
-}
-
-#forgotPassword:hover {
-    color: blue;
-    transition: 1s;
-
-}
-
-form button {
-    font-size: 50px;
-    border: 4px solid black;
-}
-
-form button:hover {
-    cursor: pointer;
-}
-
-.main div {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin-top: 20px;
+    border: 2px solid #F8A9FF;
+    border-radius: 10px;
+    color: #E0FEAC;
 }
 
-.main div h1 {
-    font-size: 1.7em;
-}
 
+@media (width <= 530px) {
+    .title {
+        font-size: 2em;
+    }
+
+    .main form {
+        width: 20em;
+    }
+
+    .line {
+        width: 20em;
+    }
+}
