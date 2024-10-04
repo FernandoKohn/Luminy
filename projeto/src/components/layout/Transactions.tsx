@@ -69,10 +69,8 @@ export const Transactions = ({ userData, card, setUser }) => {
     return (
         <div className={styles.main}>
             <div className={styles.header}>
-                <div className={styles.delete} onClick={resetdb}>
-                    <i className='bx bx-revision'></i>
-                </div>
                 <p>Transações recentes</p>
+                <i className='bx bx-revision' id={styles.delete}></i>
                 <p id={styles.selectedCard}>{card}</p>
                 <Accordion sx={{ backgroundColor: "black", color: "white", width: "240px", display: "flex", flexDirection: "column" }}>
                     <AccordionSummary
@@ -131,7 +129,7 @@ export const Transactions = ({ userData, card, setUser }) => {
                                 showSearch
                                 onChange={handleSelectDay}
                                 style={{ width: 200 }}
-                                placeholder="No que foi gasto?"
+                                placeholder="Que dia?"
                                 optionFilterProp="label"
                                 filterSort={(optionA, optionB) =>
                                     (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())

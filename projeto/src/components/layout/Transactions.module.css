@@ -15,11 +15,10 @@
     position: relative;
 }
 
-.delete {
-    position: absolute;
-    z-index: 10;
-    top: 26px;
-    left: 210px;
+#delete {
+  position: absolute;
+  top: 22px;
+  left: 215px;
 }
 
 .delete i:hover {
@@ -30,7 +29,6 @@
 #selectedCard {
     font-size: 15px;
     padding-top: 5px;  
-    margin-left: -15px;
 }
 
 .transactionForm {
@@ -116,3 +114,5 @@
     align-items: center;
     justify-content: center;
 }
+
+

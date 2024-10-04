@@ -1,5 +1,5 @@
 import styles from "./NavbarDashBoard.module.css"
-import logo from "../../img/icons/Logo.png"
+import logo from "../../img/DropsLogo.png"
 import { Link, useNavigate, useOutletContext, useParams } from "react-router-dom"
 import Tooltip from '@mui/material/Tooltip';
 
@@ -26,16 +26,6 @@ export const NavbarDashBoard = () => {
                     <Link to={`/Dashboard/${userData.user}`}>
                         <Tooltip title="Dashboard" placement="right">
                             <i className='bx bx-cube-alt'></i>
-                        </Tooltip>
-                    </Link>
-                    <Link to={"/Sobre"}>
-                        <Tooltip title="Sobre" placement="right">
-                            <i className='bx bx-message-square-dots'></i>
-                        </Tooltip>
-                    </Link>
-                    <Link to={`/User/${userData.user}`}>
-                        <Tooltip title="Início" placement="right">
-                            <i className='bx bx-group'></i>
                         </Tooltip>
                     </Link>
                 </div>

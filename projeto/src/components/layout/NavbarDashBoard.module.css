@@ -53,6 +53,14 @@ footer i:hover {
 }
 
 .luminyLogo {
-    width: 50px;
-    border-radius: 50%;
+    width: 20px;
+    filter: invert();
+    padding-top: 20px;
+}
+
+
+@media (width <= 450px) {
+    .main {
+        display: none;
+    }
 }
