@@ -41,3 +41,13 @@
 .headerButton:hover {
     cursor: pointer;
 }
+
+
+@media (width <= 1000px) {
+    .main {
+        width: 100%;
+        overflow-x: scroll;
+        overflow-x: hidden;
+    }
+
+}

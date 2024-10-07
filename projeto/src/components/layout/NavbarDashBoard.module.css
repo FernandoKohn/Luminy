@@ -59,7 +59,7 @@ footer i:hover {
 }
 
 
-@media (width <= 450px) {
+@media (width <= 1000px) {
     .main {
         display: none;
     }

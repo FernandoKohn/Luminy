@@ -25,8 +25,7 @@ export const Budget = ({ userData, card }) => {
 
 
     const optionsBisa = {
-        width: 620,
-        height: 200,
+    
         xAxis: {
             type: 'category',
             data: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom']
@@ -85,9 +84,9 @@ export const Budget = ({ userData, card }) => {
                 </div>
             </div>
             {card == "bisa" ? (
-                <ReactEcharts option={optionsBisa} />
+                <ReactEcharts option={optionsBisa} className={styles.optionsBisa} />
             ) : (
-                <ReactEcharts option={optionsFaster} />
+                <ReactEcharts option={optionsFaster} className={styles.optionsFaster}/>
             )}
         </div>
     )

@@ -72,7 +72,7 @@ export const Transactions = ({ userData, card, setUser }) => {
                 <p>Transações recentes</p>
                 <i className='bx bx-revision' id={styles.delete}></i>
                 <p id={styles.selectedCard}>{card}</p>
-                <Accordion sx={{ backgroundColor: "black", color: "white", width: "240px", display: "flex", flexDirection: "column" }}>
+                <Accordion id={styles.transactionFormButton}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}
                         aria-controls="panel1-content"
@@ -177,7 +177,7 @@ export const Transactions = ({ userData, card, setUser }) => {
                     </AccordionDetails>
                 </Accordion>
             </div>
-            <div className={styles.content}>
+           
                 {(userData.bisa && card == "bisa") && (
                     userData.bisa.toReversed().map((compra: any, index: any) => (
                         <div key={index} className={styles.transactionsCard}>
@@ -218,7 +218,7 @@ export const Transactions = ({ userData, card, setUser }) => {
                         </div>
                     ))
                 )}
-            </div>
+            
         </div>
     )
 }

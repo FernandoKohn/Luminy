@@ -83,7 +83,7 @@ export const Cards = ({ setCard, userData }) => {
             <p>Utilizado:</p>
             <p>R$ {sumBisa}</p>
           </div>
-          <div>
+          <div id={styles.moeda}>
             <p>Moeda:</p>
             <p>BRL</p>
           </div>
@@ -98,7 +98,7 @@ export const Cards = ({ setCard, userData }) => {
             <p>Utilizado:</p>
             <p>R$ {sumFaster}</p>
           </div>
-          <div>
+          <div id={styles.moeda}>
             <p>Moeda:</p>
             <p>BRL</p>
           </div>

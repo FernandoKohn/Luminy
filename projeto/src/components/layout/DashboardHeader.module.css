@@ -19,6 +19,9 @@
     height: 100%;
 }
 
+.hamburguer {
+    display: none;
+}
 
 .bellIcon {
     display: flex;
@@ -55,4 +58,27 @@
 
 .profilePic {
     width: 45px
+}
+
+@media (width <= 520px) {
+
+
+    .dashboardHeader h1 {
+        display: none;
+    }
+
+    .bellIcon {
+        display: none;
+    }
+
+    .hamburguer {
+        display: flex;
+        font-size: 2em;
+    }
+
+    .userInfoHeader {
+        width: 40%;
+        justify-content: space-between;
+    }
+
 }
