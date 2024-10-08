@@ -60,10 +60,67 @@
     width: 45px
 }
 
+.hamburguerMenu {
+    width: 250px;
+    height: 100vh;
+    background-color: #152522;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding-top: 15px;
+    color: white;
+}
+
+.hamburguerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 35px;
+}
+
+.hamburguerHeader i {
+    font-size: 1.5em;
+}
+
+.hamburguerHeader h1 {
+    font-size: 1.8em;
+}
+
+.hamburguerMenu p {
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #c7ef4e1c;
+}
+
+.hamburguerMenu p:hover {
+    cursor: pointer;
+}
+
+.hamburguerMenu footer {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    font-size: 1em;
+    align-items: center;
+    justify-content: center;
+    background-color: #C6EF4E;
+    color: #152522;
+}
+
+@media (width <= 570px) {
+    .dashboardHeader h1 {
+        font-size: 1.5em;
+    }
+}
+
 @media (width <= 520px) {
 
-
-    .dashboardHeader h1 {
+    .headerH1 {
         display: none;
     }
 

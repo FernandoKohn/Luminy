@@ -18,6 +18,7 @@ import { LearnMore } from "../layout/LearnMore"
 export const Dashboard = () => {
 
   const [card, setCard] = useState("bisa")
+  const [openMenu, setOpenMenu] = useState(false)
 
 
 
@@ -28,7 +29,7 @@ export const Dashboard = () => {
 
   return (
     <div className={styles.main}>
-      <DashboardHeader userData={userData} />
+      <DashboardHeader userData={userData} setOpenMenu={setOpenMenu} openMenu={openMenu} />
       <NavbarDashBoard />
       <div className={styles.dashboard}>
         <div className={styles.section1}>

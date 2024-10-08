@@ -68,10 +68,11 @@
 .transactionsCard {
     display: flex;
     justify-content: space-between; 
-    width: 45em;
+    width: 90%;
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     margin-left: 15px;
+    transform: scale(0.9);
 }
 
 .leftDiv {
@@ -131,5 +132,7 @@
 
     .transactionsCard {
         width: 90%;
+        transform: scale(1);
+        margin-bottom: 15px;
     }
 }
