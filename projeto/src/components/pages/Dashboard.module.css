@@ -29,6 +29,7 @@ p {
     height: 820px;
     gap: 10px;
     flex-wrap: wrap;
+    background-color: aquamarine;
 }
 
 .section2 {
@@ -39,8 +40,9 @@ p {
     gap: 15px;
 }
 
-@media (width <= 1850px) {
+@media (width <= 1900px) {
     .main {
+        width: auto;
         height: auto;
     }
 
