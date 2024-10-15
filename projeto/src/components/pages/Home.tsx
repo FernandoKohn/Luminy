@@ -1,12 +1,14 @@
 import styles from "./Home.module.css"
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useOutletContext } from "react-router-dom"
 import axios from "axios";
 import Marquee from "react-fast-marquee";
 
 
 
 export const Home = () => {
+
+    const user: any = useOutletContext()
 
 
     const jsonServer = axios.create({
@@ -18,7 +20,7 @@ export const Home = () => {
     }, [])
 
     const eyeball = (event: any) => {
-        let eyes:any = document.querySelectorAll("#pupil")
+        let eyes: any = document.querySelectorAll("#pupil")
         eyes.forEach(eye => {
             let x = eye.getBoundingClientRect().left + eye.clientWidth / 2
             let y = eye.getBoundingClientRect().top + eye.clientHeight / 2
@@ -33,7 +35,7 @@ export const Home = () => {
     return (
         <div className={styles.main} onMouseMove={eyeball}>
             <div className={styles.home}>
-            <section className={styles.section1Wide}>
+                <section className={styles.section1Wide}>
                     <h1>ILUMINY</h1>
                     <h1>SUA ECONOMIA</h1>
                     <div className={styles.ball}></div>
@@ -113,10 +115,17 @@ export const Home = () => {
                         <div className={styles.rightBlock}>
                             <p>Economize, agora</p>
                             <p className={styles.description}>Luiminy é a solução para seu gerenciamento de finanças. Aqui você encontra uma forma <span className={styles.boldSpan}>simples e gratuita de guiar o seu dinheiro</span> para um cenário mais econômico.</p>
-                            <Link to={"/Login"} className={styles.button}>
-                                <h1>Comece agora</h1>
-                                <i className='bx bx-right-arrow-alt'></i>
-                            </Link>
+                            {user.user ? (
+                                <Link to={`/Dashboard/${user.user.user}`} className={styles.button}>
+                                    <h1>Comece agora</h1>
+                                    <i className='bx bx-right-arrow-alt'></i>
+                                </Link>
+                            ) : (
+                                <Link to={"/Login"} className={styles.button}>
+                                    <h1>Comece agora</h1>
+                                    <i className='bx bx-right-arrow-alt'></i>
+                                </Link>
+                            )}
                         </div>
 
                     </div>
@@ -124,10 +133,20 @@ export const Home = () => {
                 <section className={styles.section4}>
                     <h1 className={styles.leftText}>O QUE ESTÁ<br></br> ESPERANDO?</h1>
                     <div className={styles.entrar}>
-                        <p>Faça login ou registre-se</p>
-                        <Link to={'/Login'} className={styles.entrarLink}>
-                            <h1 className={styles.login}>Login</h1>
-                        </Link>
+                        {user.user ? (
+                            <p className={styles.calltoActionText}>Ir para o seu</p>
+                        ):(
+                            <p className={styles.calltoActionText}>Faça login ou registre-se</p>
+                        )}
+                        {user.user ? (
+                            <Link to={`/Dashboard/${user.user.user}`} className={styles.entrarLink}>
+                                <h1 className={styles.login}>Dashboard</h1>
+                            </Link>
+                        ) : (
+                            <Link to={'/Login'} className={styles.entrarLink}>
+                                <h1 className={styles.login}>Login</h1>
+                            </Link>
+                        )}
                     </div>
                 </section>
                 <footer id={styles.footer}>

@@ -1,4 +1,3 @@
-import { useState } from "react"
 import bellIcon from "./../../img/icons/icons8-lembrete-de-compromissos-60.png"
 import styles from "./DashboardHeader.module.css"
 import { Link } from "react-router-dom"

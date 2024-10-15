@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Navbar } from "../layout/Navbar"
 import styles from "./Root.module.css"
-import { Home } from "./Home"
 import { Outlet, useLocation } from "react-router-dom"
 
 

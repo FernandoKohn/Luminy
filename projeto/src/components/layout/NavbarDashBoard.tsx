@@ -1,6 +1,6 @@
 import styles from "./NavbarDashBoard.module.css"
 import logo from "../../img/DropsLogo.png"
-import { Link, useNavigate, useOutletContext, useParams } from "react-router-dom"
+import { Link, useNavigate, useOutletContext} from "react-router-dom"
 import Tooltip from '@mui/material/Tooltip';
 
 export const NavbarDashBoard = () => {

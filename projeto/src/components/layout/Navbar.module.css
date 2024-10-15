@@ -60,6 +60,10 @@
     color: #152522;
 }
 
+#dashboard {
+    font-size: 0.9em;
+}
+
 @media (width <= 716px) {
     .main {
         padding-left: 0;

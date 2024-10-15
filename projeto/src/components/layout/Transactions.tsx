@@ -1,5 +1,5 @@
 import styles from "./Transactions.module.css"
-import { useEffect, useState } from "react"
+import {useState } from "react"
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -7,7 +7,6 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Select } from "antd";
 import { InputNumber } from "antd";
 import axios from "axios";
-import { getDay } from "../functions/functions";
 
 export const Transactions = ({ userData, card, setUser }) => {
 
@@ -177,7 +176,6 @@ export const Transactions = ({ userData, card, setUser }) => {
                     </AccordionDetails>
                 </Accordion>
             </div>
-           
                 {(userData.bisa && card == "bisa") && (
                     userData.bisa.toReversed().map((compra: any, index: any) => (
                         <div key={index} className={styles.transactionsCard}>

@@ -1,6 +1,5 @@
 import styles from './Graph.module.css'
 import ReactEcharts from "echarts-for-react";
-import axios from "axios";
 
 export const Graph = ({ userData }) => {''
 
