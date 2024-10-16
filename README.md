@@ -34,9 +34,10 @@ As limitações mencionadas acima são abordadas da seguinte forma:
 
 Apenas tenha acesso ao seu dashboard caso seja registrado e esteja logado:
 
-![print2](https://github.com/user-attachments/assets/a954a8be-17cc-4acf-86e2-c240114633dc)
+![print2](https://github.com/user-attachments/assets/b3445393-0929-42fb-93b9-35e739258137)
 
 O sistema de login foi desenvolvido completamente apenas com front-end, validando o acesso através de consumo de API e JSON Server com Axios.
+
 Cada usuário tem o seu próprio dashboard, que sempre lembrará das suas informações em qualquer dispositivo ou acesso.
 
 Adicione uma transação:
@@ -44,7 +45,9 @@ Adicione uma transação:
 ![Print3](https://github.com/user-attachments/assets/00d4bb95-acec-457b-ae1a-b218e9605f9c)
 
 Ao adicionar uma transação, ficará registrado diversas informações individuais sobre ela, como o dia, a hora e em que foi gasto.
+
 Essas transações serão adicionadas automaticamente ao limite utilizado do seu cartão, que pode ser visualizado log abaixo.
+
 Nota: Cada cartão tem suas transações individuais assim como limite. O cartão pode ser trocado clicando neles, alternando entre o da frente (BISA) e o de trás (FASTERCARD).
 
 ![print4](https://github.com/user-attachments/assets/c637928c-10c2-429d-8aff-7d8f76fbbe76)
