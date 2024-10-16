@@ -5,16 +5,15 @@
     border-radius: 20px;
     position: relative;
     border: 1px solid rgba(0, 0, 0, 0.178);
-
 }
 
 .header {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     padding: 20px;
-    z-index: 1;
-    position: absolute;
+    z-index: 12;
+    position: relative;
+    gap: 50px;
 }
 
 #delete {
@@ -39,7 +38,10 @@
     width: 240px;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 99;
+    position: absolute;
+    right: 20px;
+    top: 12px;
 }
 
 .transactionForm {
@@ -132,9 +134,8 @@
     }
 
     #transactionFormButton {
-        position: absolute;
-        bottom: -770%;
         left: 50%;
+        top: 800%;
         transform: translate(-50%, -50%);
     }
 
