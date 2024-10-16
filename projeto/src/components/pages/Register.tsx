@@ -60,6 +60,9 @@ export const Register = () => {
 
     return (
         <div className={styles.main}>
+            <Link to={"/"}>
+                <i className='bx bx-left-arrow-alt' id={styles.goBack}></i>
+            </Link>
             {(message && open) && (
                 <Alert onClose={() => {setOpen(false)}} className={styles.message} severity={messageType}>{message}</Alert>
             )}

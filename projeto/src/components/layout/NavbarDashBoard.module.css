@@ -9,7 +9,7 @@
     background-color: #000000;
     border-radius: 25px;
     gap: 20px;
-    z-index: 1;
+    z-index: 999;
 }
 
 .li {

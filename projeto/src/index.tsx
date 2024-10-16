@@ -10,7 +10,6 @@ import { Dashboard } from './components/pages/Dashboard';
 import { Register } from './components/pages/Register';
 import { Root } from "./components/pages/Root"
 import { ProtectedRoute } from './components/utils/ProtectedRoute';
-import { Sobre } from './components/pages/About';
 
 
 
@@ -45,11 +44,6 @@ const router = createBrowserRouter([
       {
         path: "/Registrar",
         element: <Register />,
-        errorElement: <ErrorPage />
-      },
-      {
-        path: "/Sobre",
-        element: <Sobre/>,
         errorElement: <ErrorPage />
       }
     ]

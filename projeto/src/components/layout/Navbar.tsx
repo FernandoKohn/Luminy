@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 export const Navbar = ({ user }: any) => {
 
     return (
-        <div className={styles.main}>
+        <section className={styles.main}>
             <div className={styles.blockOne}>
                 <h1>LUMINY</h1>
             </div>
@@ -22,6 +22,6 @@ export const Navbar = ({ user }: any) => {
                     </Link>
                 )}
             </div>
-        </div>
+        </section>
     )
 }

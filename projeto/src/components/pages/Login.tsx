@@ -24,7 +24,7 @@ export const Login = () => {
     const jsonServer = axios.create({
         baseURL: 'https://luminy.glitch.me/user'
     })
-    
+
 
     useEffect((() => {
         jsonServer.get('').then(resp => setUsuario(resp.data)).catch(err => console.log(err))
@@ -57,8 +57,11 @@ export const Login = () => {
 
     return (
         <div className={styles.main}>
+            <Link to={"/"}>
+                <i className='bx bx-left-arrow-alt' id={styles.goBack}></i>
+            </Link>
             {(message && open) && (
-                <Alert onClose={() => {setOpen(false)}} className={styles.message} severity={messageType}>{message}</Alert>
+                <Alert onClose={() => { setOpen(false) }} className={styles.message} severity={messageType}>{message}</Alert>
             )}
 
             <Tooltip title={longText} placement="right" arrow>
@@ -96,7 +99,7 @@ export const Login = () => {
                         color: "#E0FEAC",
                     },
                 }} inputProps={{ maxLength: 25 }} id="password" name="password" label="Senha" required variant="outlined" />
-                <button type="submit" onClick={()=> setOpen(true)} ><i className='bx bx-log-in' ></i>ENTRAR</button>
+                <button type="submit" onClick={() => setOpen(true)} ><i className='bx bx-log-in' ></i>ENTRAR</button>
             </form>
             <div className={styles.line}></div>
             <div className={styles.lowerDiv}>
