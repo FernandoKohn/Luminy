@@ -50,4 +50,21 @@ body {
   font-family: Omny;
 }
 
+html::-webkit-scrollbar {
+  width: 5px;
+  background-color: #152522;
+}
+
+
+html::-webkit-scrollbar-thumb {
+  background: #E0FEAC;
+  border-radius: 15px;
+  border-right: none;
+}
+
+
+
+html::-webkit-scrollbar-thumb:active {
+  background-color: #F8A9FF;
+}
 

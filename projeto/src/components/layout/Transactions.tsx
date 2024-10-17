@@ -69,7 +69,7 @@ export const Transactions = ({ userData, card, setUser }) => {
         <div className={styles.main}>
             <div className={styles.header}>
                 <p>Transações recentes</p>
-                <i className='bx bx-revision' id={styles.delete}></i>
+                <i className='bx bx-revision' id={styles.delete} onClick={resetdb}></i>
                 <p id={styles.selectedCard}>{card}</p>
                 <Accordion id={styles.transactionFormButton}>
                     <AccordionSummary

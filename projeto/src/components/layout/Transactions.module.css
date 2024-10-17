@@ -22,6 +22,10 @@
   left: 215px;
 }
 
+#delete:hover {
+    cursor: pointer;
+}
+
 .delete i:hover {
     font-size: 15px;
     cursor: pointer;
